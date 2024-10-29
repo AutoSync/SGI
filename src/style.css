@@ -1,0 +1,21 @@
+.body
+{
+    background-color: aquamarine;
+}
+
+
+.editor
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.toolbar
+{
+    background-color: aqua;
+}
+
+#mycanvas
+{
+    
+}
