@@ -7,13 +7,13 @@ const app = express();
 
 // Configurar livereload
 const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'public'));
+liveReloadServer.watch(path.join(__dirname, '../'));
 
 // Adicionar middleware do livereload
 app.use(connectLivereload());
 
 // Definir a pasta pública para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../')));
 
 // Rota principal
 app.get('/', (req, res) => {

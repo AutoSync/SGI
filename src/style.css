@@ -1,6 +1,11 @@
-.body
+*, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
 {
-    background-color: aquamarine;
+
 }
 
 
@@ -8,14 +13,22 @@
 {
     display: flex;
     flex-direction: row;
+
+    background-color: whitesmoke;
+    width: 100vw;
+    height: 100vh;
 }
 
 .toolbar
 {
-    background-color: aqua;
+    background-color: white;
+    border-left: 1px gray;
+
+    width: 80%;
+    height: 100%;
 }
 
 #mycanvas
 {
-    
+    background-color: aliceblue;
 }
