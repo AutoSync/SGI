@@ -2,33 +2,159 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
 }
-body
-{
 
-}
+.editor{
+    width: 100%;
+    height: 100vw;
 
-
-.editor
-{
     display: flex;
     flex-direction: row;
 
+    background-color: rgb(230, 233, 241);
+}
+#tools{
+    width: 150px;
+    height: 100vw;
     background-color: whitesmoke;
-    width: 100vw;
-    height: 100vh;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+#tools button{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    border: none;
+
+    width: 150px;
+    height: 50px;
+
+    transition: 200ms;
+    background-color: transparent;
+
 }
 
-.toolbar
-{
-    background-color: white;
-    border-left: 1px gray;
+#tools button:hover{
+    background-color: rgb(221, 202, 240);
+    color: rgb(96, 64, 105);
+    cursor: pointer;
+}
+#tools button:focus{
+    background-color: rgb(204, 183, 221);
+}
 
-    width: 80%;
+#toolslabel{
+    width: 10px;
     height: 100%;
+    background-color: rgb(162, 107, 207);
+    display: none;
 }
 
-#mycanvas
-{
-    background-color: aliceblue;
+#tools i{
+    margin-left: 1em;
+}
+
+#tools h1 {
+    font-size: medium;
+    font-weight: 300;
+    margin-left: 1em;
+}
+
+#tabs{
+    margin: .5em;
+    width: 100%;
+}
+
+#tab-title{
+    margin-left: 1em;
+    font-weight: 800;
+}
+
+/* DASHBOARD */
+
+/* CARDS */
+#card-bar{
+    display: flex;
+    flex-direction: row;
+}
+
+#card{
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    transition: 200ms;
+    border-radius: 5px;
+    margin: 1em;
+    padding: 1em;
+    box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.1);
+  
+}
+
+#card:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    scale: 1.02;
+}
+
+#card-header h3{
+    font-size: small;
+    font-weight: 500;
+    color: rgb(70, 70, 70);
+    
+}
+#card-main {
+
+}
+
+#card-values{
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+}
+
+
+
+/* NODES */
+
+/* table, th, td { 
+    border: 1px solid black; 
+    border-collapse: collapse; 
+    padding: 8px; 
+} */
+
+table{
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: 300ms;
+}
+table:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+
+}
+th{
+    background-color: white;
+    padding: 1em;
+    border-collapse: collapse;
+}
+tr{
+    background-color: whitesmoke;
+    border-collapse: collapse;
+    transition: 300ms;
+}
+tr:hover{
+    background-color: white;
+
+}
+td{
+    padding: 10px;
+       
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    
 }

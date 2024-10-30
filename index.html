@@ -3,24 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>SGI</title>
 </head>
 <body>
     <div class="editor">
-        <div class="toolbar">
-            <button>New Graph</button>
-            <button>New Node</button>
-            <input type="color" name="Color" id="inpt_color" value="#f3572d">
-            <input type="text" placeholder="node name">
-            <button>Delete</button>
-        </div>
-    
-        <canvas id="mycanvas" width="650", height="480">
-    
-        </canvas>
-    </div>
 
+        <div class="toolbar">
+
+            <div class="logo">
+
+            </div>
+
+            <div id="tools">
+
+                <button onclick="selectTab('Dashboard')">
+                    <div id="toolslabel"></div>
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>
+                    <h1>Painel</h1>
+                </button>
+
+                <button onclick="selectTab('Network')">
+                    <div id="toolslabel"></div>
+                    <i class="fa-solid fa-globe"></i>
+                    <h1>Network</h1>
+                </button>
+
+                <button onclick="selectTab('Nodes')">
+                    <div id="toolslabel"></div>
+                    <i class="fa-solid fa-circle-nodes"></i>
+                    <h1>Nodes</h1>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="tabs">
+
+            <div id="Dashboard">
+                <div id="header">
+                    <h1 id="tab-title">Painel</h1>
+                </div>
+
+                <div id="mainframe">
+
+                   <div id="card-bar">
+                        <div id="card">
+                            <div id="card-header">
+                                <h3>Total de vendas</h3>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                            <div id="card-main">
+                                <h3 id="card-values">00,00</h3>
+                                <button>
+                                    Vendas
+                                </button>
+                            </div>
+                            
+                        </div>
+
+                        <div id="card">
+                            <div id="card-header">
+                                <h3>Transações</h3>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                            <div id="card-main">
+                                <h3 id="card-values">16253</h3>
+                                <button>
+                                    Transações
+                                </button>
+                            </div>
+                            
+                        </div>
+
+                        <div id="card">
+                            <div id="card-header">
+                                <h3>Nos</h3>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                            </div>
+                            <div id="card-main">
+                                <h3 id="card-values">8633</h3>
+                                <button>
+                                    Nos
+                                </button>
+                            </div>
+                            
+                        </div>
+                   </div>
+
+                </div>
+
+                <div id="updates">
+
+                </div>
+
+            </div>
+
+            <div id="Network">
+                <h1 id="tab-title">Network</h1>
+            </div>
+
+            <div id="Nodes">
+                <div id="header-nodes">
+                    <h1 id="tab-title">Nodes</h1>
+                    <button>Add Node</button>
+                </div>
+
+                <table id="nodes-table"> 
+                    <thead> 
+                        <tr> 
+                            <th>Nome</th> 
+                            <th>Cidade</th> 
+                            <th>Categoria</th> 
+                            <th>Produtos</th> 
+                            <th>Transações</th>
+                            <th>Marketshare 2%</th>
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+
+                        <!-- Linhas da tabela serão inseridas aqui --> 
+
+                    </tbody> 
+                </table>
+                
+            </div>
+
+        </div>
+        
+        
+
+    </div>
+    <script src="https://kit.fontawesome.com/822704d924.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
