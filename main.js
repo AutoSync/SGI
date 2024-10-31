@@ -1,3 +1,4 @@
+const copyright_node = "Foto de Vasilina Sirotina na Unsplash"
 
 const clients = [
     {
@@ -164,51 +165,134 @@ function selectTab(tabname){
 }
 
 function generateTab(){
-    const table = document.querySelector("#nodes-table tbody");
+    const body = document.getElementById("table");
+
+    let index = 0;
 
     clients.forEach(node => {
-        const line = document.createElement("tr");
         
-        const cell = document.createElement("td");
-        cell.textContent = node.name;
-        line.appendChild(cell);
+        const row = document.createElement("div");
+        if(index == clients.length - 1){
+            row.setAttribute("id", "table-row-last");
+        }else{
+            row.setAttribute("id", "table-row");
+        }
 
-        const city = document.createElement("td");
-        city.textContent = node.city;
-        line.appendChild(city);
+        const client = document.createElement("div");
+        client.textContent = limitarTexto(node.name, 15);
+        client.setAttribute("id", "table-cell");
+        row.appendChild(client);
+        
+        const city = document.createElement("div");
+        city.textContent = limitarTexto(node.city, 15);
+        city.setAttribute("id", "table-cell");
+        row.appendChild(city);
 
-        const category = document.createElement("td");
-        category.textContent = node.category;
-        line.appendChild(category);
+        const category = document.createElement("div");
+        category.textContent = node.category
+        const color = colorCategory(node.category);
+        category.setAttribute("id", "table-cell-category");
+        category.style = `background-color: ${color.fill} ; color: ${color.text};`
 
-        const n_products = document.createElement("td");
-        n_products.textContent = node.products.length;
-        line.appendChild(n_products);
+        row.appendChild(category);
 
-        const transactions = document.createElement("td");
-        let vendas = 0;
-        let receita = 0;
-        node.products.forEach(produto => {
-            vendas += produto.vendasMes;
-            receita += produto.preco * vendas;
+        const receita = document.createElement("div");
+        let receita_text = 0;
+        let preco = 0;
+        let trans = 0;
+        node.products.forEach(prod => {
+            preco += prod.preco;
+            trans += prod.vendasMes;
+            receita_text += preco * trans
         })
-        transactions.textContent = vendas;
-        line.appendChild(transactions);
+        receita.textContent = convertToBRL(receita_text);
+        receita.setAttribute("id", "table-cell")
+        receita.style.fontFamily = "Rubik, serif";
+        row.appendChild(receita);
 
-        const marketshare = document.createElement("td");
-        let ms = receita * 0.02
-        marketshare.textContent = "R$ " + ms.toFixed(2);     //Valor da transação
-        line.appendChild(marketshare);
+        const transacoes = document.createElement("div");
+        transacoes.textContent = trans;
+        transacoes.setAttribute("id", "table-cell");
+        transacoes.style.fontFamily = "Rubik, serif";
+        row.appendChild(transacoes);
 
-        table.appendChild(line);
+        const marketshare = document.createElement("div")
+        let ms = preco * trans * 0.02; // Market Share TAX
+        marketshare.textContent = convertToBRL(ms)
+        marketshare.setAttribute("id", "table-cell");
+        marketshare.style.fontFamily = "Rubik, serif";
+        row.appendChild(marketshare);
+
+        const button = document.createElement("button")
+        button.textContent = "Overview";
+        button.setAttribute("id", "button-table-cell");
+        button.setAttribute("onclick", `showNodeProperties(${index})`);
+
+        row.appendChild(button);
+
+        body.appendChild(row)
+
+        index++;
+
     })
-
+   
 }
 
+//Abrir Janela de propriedades do no
+function showNodeProperties(index){
+    const node = clients[index]
 
+    const props = document.getElementById("client-properties");
+    props.style.display = "block"
+
+    const client = document.getElementById("client-name")
+    client.textContent = node.name
+
+    const city = document.getElementById("client-city")
+    city.textContent = node.city
+}
+
+//Fechar Tela de Propriedades do no
+function closeShowWindow(){
+    const props = document.getElementById("client-properties")
+    props.style.display = "none";
+
+    
+}
+
+//Clear childrens
 function clearContainer(element){
     while(element.firstChild){
         element.removeChild(element.firstChild)
+    }
+}
+
+//Place ... in big texts
+function limitarTexto(texto, limite) {
+    if (texto.length > limite) {
+        return texto.substring(0, limite) + '...';
+    } else {
+        return texto;
+    }
+}
+
+//Convert float in currency
+function convertToBRL(valor) { return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+
+//Change colors
+function colorCategory(category){
+
+    switch(category){
+        case "Supermercado":
+            return {fill: "#ff9393", text: "#ab0000"}
+        case "Farmácia":
+            return {fill: "#93ff95", text: "#005e02"}
+        case "Conveniência":
+            return {fill: "#fffd93", text: "#6a3b02"}
+        case "Comércio Geral":
+            return {fill: "#b8b8ff", text: "#393979"}
+        default:
+            return {fill: "#b4b4b4", text: "#5f5f5f"}
     }
 }
 

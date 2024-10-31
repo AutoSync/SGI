@@ -113,24 +113,29 @@
                     <button>Add Node</button>
                 </div>
 
-                <table id="nodes-table"> 
-                    <thead> 
-                        <tr> 
-                            <th>Nome</th> 
-                            <th>Cidade</th> 
-                            <th>Categoria</th> 
-                            <th>Produtos</th> 
-                            <th>Transações</th>
-                            <th>Marketshare 2%</th>
-                        </tr> 
-                    </thead> 
-                    <tbody> 
-
-                        <!-- Linhas da tabela serão inseridas aqui --> 
-
-                    </tbody> 
-                </table>
+                <div id="table">
+                    <div id="table-header-row">
+                        <div id="table-header-cell">Cliente</div>
+                        <div id="table-header-cell">Cidade</div>
+                        <div id="table-header-cell">Category</div>
+                        <div id="table-header-cell">Receita</div>
+                        <!-- <div id="table-header-cell">Status</div> -->
+                        <div id="table-header-cell">Transações</div>
+                        <div id="table-header-cell">Marketshare</div>
+                        <div id="table-header-cell"></div> 
+                    </div>
+                    <!-- Auto Fill -->             
+                </div>
                 
+            </div>
+
+        </div>
+
+        <div id="client-properties" style="display: none">
+            <div id="props-toolbar">
+                <button onclick="closeShowWindow()">close</button>
+                <h3 id="client-name">Name</h3>
+                <h3 id="client-city">City</h3>
             </div>
 
         </div>
