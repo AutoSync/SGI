@@ -10,8 +10,7 @@
 
 .editor{
     width: 100%;
-    height: 100vw;
-
+    height: 100%;
     display: flex;
     flex-direction: row;
 
@@ -19,7 +18,7 @@
 }
 #tools{
     width: 150px;
-    height: 100vw;
+    height: 100%;
     background-color: whitesmoke;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
@@ -37,7 +36,6 @@
     background-color: transparent;
 
 }
-
 #tools button:hover{
     background-color: rgb(221, 202, 240);
     color: rgb(96, 64, 105);
@@ -46,18 +44,15 @@
 #tools button:focus{
     background-color: rgb(204, 183, 221);
 }
-
 #toolslabel{
     width: 10px;
     height: 100%;
     background-color: rgb(162, 107, 207);
     display: none;
 }
-
 #tools i{
     margin-left: 1em;
 }
-
 #tools h1 {
     font-size: medium;
     font-weight: 300;
@@ -68,6 +63,7 @@
 
 #tabs{
     width: 100%;
+    height: 100vh;
 }
 
 #tab-title, #tab-nodes-dashboard,#tab-nodes-title, #tab-network-title{
@@ -293,11 +289,13 @@
     position: absolute;
     z-index: 9999;
     width: 100%;
-    margin-left: 150px;
-    height: 100vw;
+    height: 100%;
 
     background-color: rgb(63, 63, 63);
     color: white;
+
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 #props-toolbar{

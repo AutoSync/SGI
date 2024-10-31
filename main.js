@@ -267,7 +267,7 @@ function showNodeProperties(index){
     const node = clients[index]
 
     const props = document.getElementById("client-properties");
-    props.style.display = "block"
+    props.style.visibility = "visible"
 
     const client = document.getElementById("client-name")
     client.textContent = node.name
@@ -490,9 +490,7 @@ function taxByProd(produto) {
 //Fechar Tela de Propriedades do no
 function closeShowWindow(){
     const props = document.getElementById("client-properties")
-    props.style.display = "none";
-
-    
+    props.style.visibility = "collapse";
 }
 
 //Clear childrens
