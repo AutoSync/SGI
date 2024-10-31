@@ -109,8 +109,11 @@
 
             <div id="Nodes">
                 <div id="header-nodes">
-                    <h1 id="tab-title">Nodes</h1>
-                    <button>Add Node</button>
+                    <h1 id="tab-nodes-title">Nodes</h1>
+                    <div id="nodes-container-btns">
+                        <button id="tab-nodes-btn"><i id="new-node-btn" class="fa-solid fa-plus"></i></button>
+                        <button id="tab-settings-node-btn"><i id="new-node-btn" class="fa-solid fa-gear"></i></button>
+                    </div>
                 </div>
 
                 <div id="table">
@@ -133,11 +136,10 @@
 
         <div id="client-properties" style="display: none">
             <div id="props-toolbar">
-                <button onclick="closeShowWindow()">close</button>
+                <button id="close-props-btn" onclick="closeShowWindow()"><i id="close-props-icon" class="fa-solid fa-circle-xmark"></i></button>
                 <h3 id="client-name">Name</h3>
                 <h3 id="client-city">City</h3>
             </div>
-
         </div>
         
         

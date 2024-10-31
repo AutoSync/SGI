@@ -179,7 +179,7 @@ function generateTab(){
         }
 
         const client = document.createElement("div");
-        client.textContent = limitarTexto(node.name, 15);
+        client.textContent = limitarTexto(node.name, 30);
         client.setAttribute("id", "table-cell");
         row.appendChild(client);
         
@@ -224,9 +224,13 @@ function generateTab(){
         row.appendChild(marketshare);
 
         const button = document.createElement("button")
-        button.textContent = "Overview";
         button.setAttribute("id", "button-table-cell");
         button.setAttribute("onclick", `showNodeProperties(${index})`);
+
+        const icon = document.createElement("i")
+        icon.setAttribute("class", "fa-solid fa-arrow-up-right-from-square")
+
+        button.appendChild(icon);
 
         row.appendChild(button);
 

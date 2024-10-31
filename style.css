@@ -70,7 +70,7 @@
     width: 100%;
 }
 
-#tab-title{
+#tab-title, #tab-nodes-dashboard,#tab-nodes-title, #tab-network-title{
     margin-left: 1em;
     font-weight: 800;
 }
@@ -132,7 +132,7 @@
 #table-header-row, #table-row, #table-row-last{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 
     padding: 1em;
@@ -171,7 +171,6 @@
     font-size: 14pt;
     font-weight: 600;
     width: 150px;
-    min-height: 30px;
 }
 
 
@@ -194,7 +193,7 @@
 
 #table-cell{
     color: white;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -203,7 +202,17 @@
     border-radius: 10px;
     transition: 200ms;
     background-color: #4afa85c7;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    padding: .5em;
+
 }
+
 
 #button-table-cell:hover{
     background-color: #97ffb9c7;
@@ -218,9 +227,10 @@
 
     border-radius: 15px;
 
-    padding: 0 1em 0 1em;
+    padding: 0.2em 1.5em 0.2em 1.5em;
     font-weight: 800;
     font-size: 10pt;
+    min-height: 35px;
 
 }
 
@@ -236,7 +246,48 @@
 }
 
 #header-nodes{
-    color: rgb(153, 153, 153);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tab-nodes-title{
+
+    color: rgba(255, 255, 255, 0.726);
+    margin: 1em;
+}
+
+#nodes-container-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tab-nodes-btn, #tab-settings-node-btn{
+    width: 100px;
+    height: 50px;
+    border: none;
+    transition: 200ms;
+    background-color: rgba(255, 255, 255, 0.295);
+    border-radius: 10px;
+    color: #000;
+    margin-right: 1.5em;
+}
+#tab-nodes-btn:hover{
+    background-color: rgba(140, 18, 253, 0.726);
+    cursor: pointer;
+    color: white;
+}
+#tab-settings-node-btn:hover{
+    background-color: rgba(206, 206, 206, 0.726);
+    cursor: pointer;
+    color: white;
+}
+#new-node-btn{
+    padding: .5em;
+    font-size: 18pt;
 }
 
 
@@ -252,11 +303,38 @@
     background-color: rgb(63, 63, 63);
     color: white;
 }
+
 #props-toolbar{
+
+    width: 100%;
+    background-color: whitesmoke;
+    color: gray;
+
+    font-weight: 600;
+    
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
+
+#close-props-btn{
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    background-color: transparent;
+    transition: 200ms;
+}
+#close-props-btn:hover{
+   background-color: #929292;
+   cursor: pointer;
+}
+
+#close-props-icon{
+    font-size: 18pt;
+}
+
 
 
 @media only screen and (min-width: 768px) {
