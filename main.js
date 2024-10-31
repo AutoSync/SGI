@@ -1,5 +1,5 @@
 const copyright_node = "Foto de Vasilina Sirotina na Unsplash"
-const debugNodeProps = true //Somente para debugar a janela de propriedades do no
+const debugNodeProps = false //Somente para debugar a janela de propriedades do no
 var dashboard_total_sales = 0;
 var dashboard_transactions = 0;
 var dashboard_nodes = 0;
@@ -269,10 +269,10 @@ function showNodeProperties(index){
     const props = document.getElementById("client-properties");
     props.style.visibility = "visible"
 
-    const client = document.getElementById("client-name")
+    const client = document.getElementById("client-name-props")
     client.textContent = node.name
 
-    const city = document.getElementById("client-city")
+    const city = document.getElementById("client-city-props")
     city.textContent = node.city
 
     const table = document.getElementById('table-props')
