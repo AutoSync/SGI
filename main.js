@@ -1,4 +1,8 @@
 const copyright_node = "Foto de Vasilina Sirotina na Unsplash"
+const debugNodeProps = true //Somente para debugar a janela de propriedades do no
+var dashboard_total_sales = 0;
+var dashboard_transactions = 0;
+var dashboard_nodes = 0;
 
 const clients = [
     {
@@ -164,10 +168,13 @@ function selectTab(tabname){
 
 }
 
+//Generated Tab
 function generateTab(){
     const body = document.getElementById("table");
 
-    let index = 0;
+    var index = 0;
+    //Number of Clients
+    dashboard_nodes = clients.length
 
     clients.forEach(node => {
         
@@ -209,12 +216,13 @@ function generateTab(){
         receita.setAttribute("id", "table-cell")
         receita.style.fontFamily = "Rubik, serif";
         row.appendChild(receita);
-
+        
         const transacoes = document.createElement("div");
         transacoes.textContent = trans;
         transacoes.setAttribute("id", "table-cell");
         transacoes.style.fontFamily = "Rubik, serif";
         row.appendChild(transacoes);
+        dashboard_transactions += trans
 
         const marketshare = document.createElement("div")
         let ms = preco * trans * 0.02; // Market Share TAX
@@ -222,6 +230,7 @@ function generateTab(){
         marketshare.setAttribute("id", "table-cell");
         marketshare.style.fontFamily = "Rubik, serif";
         row.appendChild(marketshare);
+        dashboard_total_sales += ms;
 
         const button = document.createElement("button")
         button.setAttribute("id", "button-table-cell");
@@ -239,7 +248,18 @@ function generateTab(){
         index++;
 
     })
-   
+
+    UpdateDashboardCard();  
+}
+
+//Update Dashboard Cards
+function UpdateDashboardCard(){
+    const card_vendas = document.getElementById("card-total-sales")
+    card_vendas.textContent = convertToBRL(dashboard_total_sales);
+    const card_transacoes = document.getElementById("card-transactions")
+    card_transacoes.textContent = dashboard_transactions;
+    const card_nodes = document.getElementById("card-nodes-values")
+    card_nodes.textContent = dashboard_nodes;
 }
 
 //Abrir Janela de propriedades do no
@@ -254,6 +274,217 @@ function showNodeProperties(index){
 
     const city = document.getElementById("client-city")
     city.textContent = node.city
+
+    const table = document.getElementById('table-props')
+    clearContainer(table)
+
+    //  Generated tab
+    //  Generated Header Table
+    {
+    const row = document.createElement("div")
+    row.setAttribute("id", "tr-header-prop")
+    
+    //PRODUTO
+    const produto = document.createElement("div");
+    produto.textContent = "Nome";
+    produto.setAttribute("id","td-header-prop")
+    row.appendChild(produto)
+    //PRECO DISTRIBUIDORA
+    const preco_dist = document.createElement("div");
+    preco_dist .textContent = "Preço dist";
+    preco_dist .setAttribute("id","td-header-prop")
+    row.appendChild(preco_dist )
+    //PRECO
+    const preco = document.createElement("div");
+    preco.textContent = "Preço";
+    preco.setAttribute("id","td-header-prop")
+    row.appendChild(preco)
+    //ALIQUOTA DE IMPOSTO
+    const alqt_impost = document.createElement("div");
+    alqt_impost.textContent = "%Imposto";
+    alqt_impost.setAttribute("id","td-header-prop")
+    row.appendChild(alqt_impost)
+    //LUCRO
+    const lucro_liquido = document.createElement("div");
+    lucro_liquido.textContent = "Lucro LQD.";
+    lucro_liquido.setAttribute("id","td-header-prop")
+    row.appendChild(lucro_liquido)
+    //VALIDADE
+    const validade = document.createElement("div");
+    validade.textContent = "Validade";
+    validade.setAttribute("id","td-header-prop")
+    row.appendChild(validade)
+    //ESROQUE
+    const estoque = document.createElement("div");
+    estoque.textContent = "Estoque";
+    estoque.setAttribute("id","td-header-prop")
+    row.appendChild(estoque)
+    //VALOR DO ESTOQUE
+    const estoque_value = document.createElement("div");
+    estoque_value.textContent = "V. Estoque";
+    estoque_value.setAttribute("id","td-header-prop")
+    row.appendChild(estoque_value)
+    //VENDAS MES
+    const vendasMes = document.createElement("div");
+    vendasMes.textContent = "Vendas Mês";
+    vendasMes.setAttribute("id","td-header-prop")
+    row.appendChild(vendasMes)  
+    //RECEITA MES BRUTO
+    const receita_mes_bruto = document.createElement("div");
+    receita_mes_bruto.textContent = "R/M BRT.";
+    receita_mes_bruto.setAttribute("id","td-header-prop")
+    row.appendChild(receita_mes_bruto)
+    //RECEITA MES BRUTO
+    const receita_mes_liquido = document.createElement("div");
+    receita_mes_liquido.textContent = "R/M. LQD.";
+    receita_mes_liquido.setAttribute("id","td-header-prop")
+    row.appendChild(receita_mes_liquido)
+    //VENDAS TOTAIS
+    const vendasTotal = document.createElement("div");
+    vendasTotal.textContent = "Vendas Totais";
+    vendasTotal.setAttribute("id","td-header-prop")
+    row.appendChild(vendasTotal)
+    //VENDAS TOTAIS
+    const receita_total_bruto = document.createElement("div");
+    vendasTotal.textContent = "R/T BRT.";
+    vendasTotal.setAttribute("id","td-header-prop")
+    row.appendChild(vendasTotal)
+    //VENDAS TOTAIS
+    const receita_total_liquido = document.createElement("div");
+    receita_total_liquido.textContent = "R/T LQD.";
+    receita_total_liquido.setAttribute("id","td-header-prop")
+    row.appendChild(receita_total_liquido)
+
+    table.appendChild(row);
+    }
+
+    var index = 0;
+    node.products.forEach(prod => {
+
+        const row = document.createElement("div")
+        if(index == node.products.length - 1){
+            row.setAttribute("id", "tr-prop-lastrow")
+        }else{
+            row.setAttribute("id", "tr-prop")       
+        }
+        //PRODUTO
+        const produto = document.createElement("div");
+        produto.textContent = limitarTexto(prod.nome, 15)
+        produto.setAttribute("id","td-prop")
+        row.appendChild(produto);
+        //PRECO DIST
+        const preco_dist = document.createElement("div");
+        let v_preco_dist = prod.preco - (prod.preco * 0.5) //Receita - 50% Distribuidora
+        preco_dist.textContent = convertToBRL(v_preco_dist);  
+        preco_dist.setAttribute("id","td-prop")
+        row.appendChild(preco_dist);
+        //PRECO
+        const preco = document.createElement("div");
+        preco.textContent = convertToBRL(prod.preco);
+        preco.setAttribute("id","td-prop")
+        row.appendChild(preco);
+        //IMPOSTO
+        const imposto = document.createElement("div");
+        imposto.textContent = taxByProd(prod.nome) * 100 + "%";
+        imposto.setAttribute("id","td-prop")
+        row.appendChild(imposto);
+        //LUCRO
+        const lucro = document.createElement("div");
+        let v_tax = taxByProd(prod.nome)
+        let v_lucro_bruto = prod.preco - v_preco_dist;
+        let n_lucro = v_lucro_bruto - (v_lucro_bruto * v_tax);
+        lucro.textContent = convertToBRL(n_lucro);
+        lucro.setAttribute("id","td-prop")
+        row.appendChild(lucro);
+        //VALIDADE
+        const validade = document.createElement("div");
+        validade.textContent = new Date(prod.validade).toLocaleDateString("pt-BR");
+        validade.setAttribute("id","td-prop")
+        row.appendChild(validade);
+        //ESTOQUE
+        const estoque = document.createElement("div");
+        estoque.textContent = prod.estoque;
+        estoque.setAttribute("id","td-prop")
+        row.appendChild(estoque);
+        //VALOR ESTOQUE
+        const valor_estoque = document.createElement("div");
+        valor_estoque.textContent = convertToBRL(prod.estoque * prod.preco);
+        valor_estoque.setAttribute("id","td-prop")
+        row.appendChild(valor_estoque);
+        //VENDAS MES
+        const vendasMes = document.createElement("div");
+        vendasMes.textContent = prod.vendasMes;
+        vendasMes.setAttribute("id","td-prop")
+        row.appendChild(vendasMes);
+        //RECEITA MES BRUTO
+        const receita_mes_bruto = document.createElement("div");
+        receita_mes_bruto.textContent = convertToBRL(prod.vendasMes * prod.preco);
+        receita_mes_bruto.setAttribute("id","td-prop")
+        row.appendChild(receita_mes_bruto);
+        //RECEITA MES LIQUIDO
+        const receita_mes_liquido = document.createElement("div");
+        receita_mes_liquido.textContent = convertToBRL(prod.vendasMes * n_lucro);
+        receita_mes_liquido.setAttribute("id","td-prop")
+        row.appendChild(receita_mes_liquido);
+        //VENDAS TOTAIS
+        const vendasTotal = document.createElement("div");
+        vendasTotal.textContent = prod.vendasTotal;
+        vendasTotal.setAttribute("id","td-prop")
+        row.appendChild(vendasTotal);
+        //RECEITA TOTAIS BRUTO
+        const receita_total_bruto = document.createElement("div");
+        receita_total_bruto.textContent = convertToBRL(prod.vendasTotal *  prod.preco );
+        receita_total_bruto.setAttribute("id","td-prop")
+        row.appendChild(vendasTotal);
+        //RECEITA TOTAIS LIQUIDO
+        const receita_total_liquido = document.createElement("div");
+        receita_total_liquido.textContent = convertToBRL(prod.vendasTotal * n_lucro );
+        receita_total_liquido.setAttribute("id","td-prop")
+        row.appendChild(receita_total_liquido);
+
+        table.appendChild(row)
+        index++;
+    })
+
+}
+
+function taxByProd(produto) {
+    let imposto = 0.08; // 8%
+
+    switch (produto.toLowerCase()) {
+        case 'arroz':
+            imposto = 0.05; 
+            break;
+        case 'feijão':
+            imposto = 0.05;
+            break;
+        case 'macarrão':
+            imposto = 0.05; 
+            break;
+        case 'detergente':
+            imposto = 0.10; 
+            break;
+        case 'sabão em pó':
+            imposto = 0.10; 
+            break;
+        case 'desinfetante':
+            imposto = 0.10; 
+            break;
+        case 'refrigerante':
+            imposto = 0.45; 
+            break;
+        case 'cerveja':
+            imposto = 0.10; 
+            break;
+        case 'vinho':
+            imposto = 0.18; 
+            break;
+        default:
+            imposto = 0.08; 
+            break;
+    }
+
+    return imposto;
 }
 
 //Fechar Tela de Propriedades do no
@@ -299,6 +530,13 @@ function colorCategory(category){
             return {fill: "#b4b4b4", text: "#5f5f5f"}
     }
 }
+//DEBUG
+if(debugNodeProps){
+    const d = document.getElementById('client-properties')
+    d.style.display = "block"
+    showNodeProperties(4)   //Deve ser resetado
+}
 
+//Initialize Tab
 selectTab("Nodes");
 generateTab();

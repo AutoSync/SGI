@@ -58,9 +58,9 @@
                                 <i class="fa-solid fa-arrow-trend-up"></i>
                             </div>
                             <div id="card-main">
-                                <h3 id="card-values">00,00</h3>
-                                <button>
-                                    Vendas
+                                <h3 id="card-total-sales">1234</h3>
+                                <button onclick="selectTab('Nodes')">
+                                    Marketshare Total
                                 </button>
                             </div>
                             
@@ -69,11 +69,11 @@
                         <div id="card">
                             <div id="card-header">
                                 <h3>Transações</h3>
-                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <i class="fa-solid fa-arrows-h"></i>
                             </div>
                             <div id="card-main">
-                                <h3 id="card-values">16253</h3>
-                                <button>
+                                <h3 id="card-transactions">1234</h3>
+                                <button onclick="selectTab('Nodes')">
                                     Transações
                                 </button>
                             </div>
@@ -83,12 +83,12 @@
                         <div id="card">
                             <div id="card-header">
                                 <h3>Nos</h3>
-                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                <i class="fa-solid fa-circle-nodes"></i>
                             </div>
                             <div id="card-main">
-                                <h3 id="card-values">8633</h3>
-                                <button>
-                                    Nos
+                                <h3 id="card-nodes-values">1234</h3>
+                                <button onclick="selectTab('Nodes')">
+                                    Nodes
                                 </button>
                             </div>
                             
@@ -125,7 +125,7 @@
                         <!-- <div id="table-header-cell">Status</div> -->
                         <div id="table-header-cell">Transações</div>
                         <div id="table-header-cell">Marketshare</div>
-                        <div id="table-header-cell"></div> 
+                        <div id="table-header-cell">Visáo Geral</div> 
                     </div>
                     <!-- Auto Fill -->             
                 </div>
@@ -137,13 +137,19 @@
         <div id="client-properties" style="display: none">
             <div id="props-toolbar">
                 <button id="close-props-btn" onclick="closeShowWindow()"><i id="close-props-icon" class="fa-solid fa-circle-xmark"></i></button>
-                <h3 id="client-name">Name</h3>
-                <h3 id="client-city">City</h3>
+                <h1 id="client-name">Name</h1>
+                <h1 id="client-city">City</h1>
             </div>
+
+            <div id="client-properties-main">
+                <div id="table-props">
+
+                </div>
+
+            </div>
+
         </div>
         
-        
-
     </div>
     <script src="https://kit.fontawesome.com/822704d924.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>

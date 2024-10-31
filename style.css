@@ -135,7 +135,7 @@
     justify-content: space-around;
     align-items: center;
 
-    padding: 1em;
+    padding: .5em .2em .5em .2em;
 }
 
 #table-header-row{
@@ -170,7 +170,7 @@
 
     font-size: 14pt;
     font-weight: 600;
-    width: 150px;
+    width: 120px;
 }
 
 
@@ -183,12 +183,10 @@
     background-color: transparent;
 }
 
-
 #table-cell, #button-tab-cell{
     font-weight: 300;
     font-size: 12pt;
 
-    padding: 0;
 }
 
 #table-cell{
@@ -213,7 +211,6 @@
 
 }
 
-
 #button-table-cell:hover{
     background-color: #97ffb9c7;
     cursor: pointer;
@@ -233,7 +230,6 @@
     min-height: 35px;
 
 }
-
 /* NODES */
 #Nodes{
     background: rgba(71, 71, 71, 0.5);
@@ -334,7 +330,57 @@
 #close-props-icon{
     font-size: 18pt;
 }
+/* CLIENTS TABLE */
+#client-properties-main{
+    padding: 1em;
+}
 
+
+/* TABLE NODE PROPS */
+
+#table-props{
+    overflow-y: scroll;
+    overflow-y: clip;
+}
+#tr-header-prop, #tr-prop, #tr-prop-lastrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid transparent;
+    transition: 200ms;
+    width: 80%;
+
+    margin: 2px 0px 2px 0;
+}
+
+#tr-header-prop{
+    background-color: rgba(255, 255, 255, 0.637);
+    color: black;
+}
+#tr-prop{
+    background-color: #00000017;
+}
+#tr-prop:hover{
+    background-color: #585858;
+    border: 1px solid whitesmoke;
+}
+#tr-prop-lastrow{
+    background-color: #585858;
+}
+
+#td-header-prop, #td-prop{
+    padding: .2em;
+    margin-left: .1em;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 60px;
+    min-width: 40px;
+}
 
 
 @media only screen and (min-width: 768px) {
