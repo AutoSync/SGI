@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12.2302mm" height="4.5089mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 94.13 34.7"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="401" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Bebas Neue">
+		<font-face-src>
+			<font-face-name name="Bebas Neue Regular"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="D" horiz-adv-x="406" d="M40.9859 0l168.018 0c109.988,0 163.983,61.0086 163.983,172.995l0 354.022c0,111.986 -53.9947,172.995 -163.983,172.995l-168.018 0 0 -700.012zm110.027 99.9961l0 500.02 55.9931 0c34.9908,0 55.9931,-18.0244 55.9931,-68.0224l0 -363.975c0,-50.0372 -21.0023,-68.0224 -55.9931,-68.0224l-55.9931 0z"/>
+   <glyph unicode="E" horiz-adv-x="362" d="M40.9859 0l300.027 0 0 99.9961 -190 0 0 214.999 150.974 0 0 99.9961 -150.974 0 0 185.024 190 0 0 99.9961 -300.027 0 0 -700.012z"/>
+   <glyph unicode="M" horiz-adv-x="537" d="M40.9859 0l95.9994 0 0 529.995 1.99835 0 80.0125 -529.995 92.0027 0 80.0125 529.995 1.99835 0 0 -529.995 103.993 0 0 700.012 -157.008 0 -69.9816 -500.999 -1.99835 0 -70.0208 500.999 -157.008 0 0 -700.012z"/>
+   <glyph unicode="O" horiz-adv-x="399" d="M199.992 -9.99177c107.989,0 167,63.9865 167,175.973l0 368.011c0,112.025 -59.0102,176.012 -167,176.012 -107.989,0 -167,-63.9865 -167,-176.012l0 -368.011c0,-111.986 59.0102,-175.973 167,-175.973zm0 99.9961c-34.9908,0 -56.9727,19.004 -56.9727,69.002l0 381.999c0,49.998 21.9819,69.002 56.9727,69.002 34.9908,0 57.0119,-19.004 57.0119,-69.002l0 -381.999c0,-49.998 -22.0211,-69.002 -57.0119,-69.002z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Bebas Neue";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .fil1 {fill:black}
+    .fil0 {fill:#FFCC00}
+    .fnt0 {font-weight:normal;font-size:19.64px;font-family:'Bebas Neue'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2122121133424">
+   <path class="fil0" d="M7.81 34.7c5.21,0 8,-3.08 8,-8.58 0,-4.19 -1.4,-6.89 -5.83,-10.8 -3.47,-3.04 -4.58,-4.82 -4.58,-7.28 0,-2.31 0.96,-3.23 2.65,-3.23 1.69,0 2.65,0.92 2.65,3.33l0 1.73 5.01 0 0 -1.4c0,-5.4 -2.55,-8.48 -7.71,-8.48 -5.16,0 -7.9,3.08 -7.9,8.39 0,3.86 1.45,6.6 5.88,10.51 3.47,3.04 4.53,4.82 4.53,7.61 0,2.51 -1.06,3.37 -2.75,3.37 -1.69,0 -2.75,-0.87 -2.75,-3.28l0 -2.31 -5.01 0 0 1.93c0,5.4 2.6,8.48 7.81,8.48zm18.56 0c5.21,0 7.9,-3.08 7.9,-8.48l0 -11.04 -7.66 0 0 4.82 2.65 0 0 6.6c0,2.41 -1.06,3.28 -2.75,3.28 -1.69,0 -2.75,-0.87 -2.75,-3.28l0 -18.46c0,-2.41 1.06,-3.33 2.75,-3.33 1.69,0 2.75,0.92 2.75,3.33l0 3.23 5.01 0 0 -2.89c0,-5.4 -2.7,-8.48 -7.9,-8.48 -5.21,0 -7.9,3.08 -7.9,8.48l0 17.74c0,5.4 2.7,8.48 7.9,8.48zm11.33 -0.48l5.3 0 0 -23.41 -5.3 -1.63 0 25.05zm5.3 -28.07l0 -5.66 -5.3 0 0 5.66 5.3 0z"/>
+   <g>
+    <rect class="fil0" x="49.07" y="7.72" width="45.06" height="19.26" rx="1.6" ry="1.86"/>
+    <text x="54.75" y="24.23"  class="fil1 fnt0">DEMO</text>
+   </g>
+  </g>
+ </g>
+</svg>

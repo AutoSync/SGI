@@ -119,8 +119,8 @@
 }
 
 .node{
-    width: 50px;
-    height: 50px;
+    width: fit-content;
+    height: fit-content;
     border-radius: 50%;
     position: absolute;
     cursor: pointer;
@@ -131,13 +131,14 @@
     font-weight: bold;
     user-select: none;
 
+    padding: 1em;
+
     box-shadow: 0 0 0 0 rgba(0,0,0,0);
      
 }
 .node:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.384);
 }
-
 
 #edges {
     stroke: #2c3e50;

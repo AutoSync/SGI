@@ -5,7 +5,6 @@ var dashboard_transactions = 0;
 var dashboard_nodes = 0;
 
 //FOR NETWORK NODES
-var nodesInitialized = true
 var nodes = []
 var connect_nodes = []
 
@@ -196,7 +195,6 @@ function createNode(x, y, client, id)
     container.appendChild(node)
 
 }
-
 function renderEdge()
 {
     connect_nodes.forEach(node => {
@@ -212,7 +210,6 @@ function renderEdge()
         line.setAttribute("y2", B.offsetTop + B.offsetHeight / 2 );
     })
 }
-
 //Create Edge and bind Connections
 function connecEdge(node1, node2){
 
@@ -227,7 +224,9 @@ function connecEdge(node1, node2){
 }
 // Função para habilitar o arraste dos nós
 function enableDrag(node) {
-    const c_mousepos = document.getElementById('mousepos')
+
+    const gapX = document.getElementById("tools").offsetWidth
+    const gapY = document.getElementById("Network").offsetHeight
 
     node.onmousedown = function(event) {
       event.preventDefault();
@@ -237,9 +236,8 @@ function enableDrag(node) {
         let shiftY = event.clientY - node.getBoundingClientRect().top;
         
        function moveAt(pageX, pageY) {
-         node.style.left = pageX - shiftX - 150 + 'px';
-         node.style.top = pageY - shiftY - 45 + 'px';
-         c_mousepos.textContent = `Mouse X:${pageX}:MouseY:${pageY} ShiftX: ${shiftX}: ShiftY: ${shiftY}`   
+         node.style.left = pageX - shiftX - gapX + 'px';
+         node.style.top = pageY - shiftY - gapY + 'px'; 
          renderEdge();     
        }
  
@@ -262,9 +260,11 @@ function enableDrag(node) {
 
     renderEdge();
 }
-
+//Generated nodes in the graph
 function GeneratedNodes(){
     
+    const container = document.getElementById("markers")
+   
     let positions = [
         {x: 743, y: 303 },
         {x: 394, y: 348 },
@@ -277,9 +277,9 @@ function GeneratedNodes(){
         let id = nodes.length;
         createNode(positions[i].x, positions[i].y, client, id)
         i++;
+
     })
 }
-
 //Generated Tab
 function generateTab(){
     const body = document.getElementById("table");
@@ -363,7 +363,6 @@ function generateTab(){
 
     UpdateDashboardCard();  
 }
-
 //Update Dashboard Cards
 function UpdateDashboardCard(){
     const card_vendas = document.getElementById("card-total-sales")
@@ -373,7 +372,6 @@ function UpdateDashboardCard(){
     const card_nodes = document.getElementById("card-nodes-values")
     card_nodes.textContent = dashboard_nodes;
 }
-
 //Abrir Janela de propriedades do no
 function showNodeProperties(index){
     const node = clients[index]
@@ -559,7 +557,6 @@ function showNodeProperties(index){
     })
 
 }
-
 function taxByProd(produto) {
     let imposto = 0.08; // 8%
 
@@ -598,20 +595,17 @@ function taxByProd(produto) {
 
     return imposto;
 }
-
 //Fechar Tela de Propriedades do no
 function closeShowWindow(){
     const props = document.getElementById("client-properties")
     props.style.visibility = "collapse";
 }
-
 //Clear childrens
 function clearContainer(element){
     while(element.firstChild){
         element.removeChild(element.firstChild)
     }
 }
-
 //Place ... in big texts
 function limitarTexto(texto, limite) {
     if (texto.length > limite) {
@@ -620,10 +614,11 @@ function limitarTexto(texto, limite) {
         return texto;
     }
 }
-
 //Convert float in currency
-function convertToBRL(valor) { return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
-
+function convertToBRL(valor) 
+{ 
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
 //Change colors
 function colorCategory(category){
 
