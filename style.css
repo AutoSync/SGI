@@ -108,6 +108,50 @@
     font-weight: 300;
 }
 
+/* NETWORK */
+
+.graph, .svg-edges{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    border: 1px solid #ccc;
+    overflow: hidden
+}
+
+.node{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(24, 24, 24);
+    font-weight: bold;
+    user-select: none;
+
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+     
+}
+.node:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.384);
+}
+
+#edges{
+    stroke: #293b4d;
+    stroke-width: 2;
+}
+
+#mousepos{
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    background-color: #000;
+    color: white;
+    padding: 1em;
+}
+
 /* NODES */
 
 #table{
@@ -269,7 +313,6 @@
     font-size: 18pt;
 }
 
-
 /* CLIENT PROPERTIES */
 
 #client-properties{
@@ -393,7 +436,7 @@
     border-radius: 0 0 10px 10px; 
 }
 
-#td-header-prop, #td-prop{
+#td-header-prop, #td-prop, #td-prop-value{
     padding: .2em;
     margin-left: .1em;
     
@@ -403,6 +446,15 @@
     align-items: center;
     max-width: 60px;
     min-width: 40px;
+}
+
+#td-prop-value{
+    font-family: 'rubik', sans;
+    transition: 200ms;
+}
+
+#td-prop-value:hover{
+    color: #5ad178;
 }
 
 

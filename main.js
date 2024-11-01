@@ -4,6 +4,11 @@ var dashboard_total_sales = 0;
 var dashboard_transactions = 0;
 var dashboard_nodes = 0;
 
+//FOR NETWORK NODES
+var nodesInitialized = true
+var nodes = []
+var connect_nodes = []
+
 const clients = [
     {
         name: "Supermercado Bom Preço",
@@ -31,7 +36,8 @@ const clients = [
             { nome: "Biscoito", preco: 2.99, validade: "2024-08-30", estoque: 70, vendasMes: 25, vendasTotal: 270 },
             { nome: "Sorvete", preco: 8.99, validade: "2024-03-15", estoque: 30, vendasMes: 10, vendasTotal: 100 },
             { nome: "Iogurte", preco: 2.49, validade: "2024-02-10", estoque: 50, vendasMes: 12, vendasTotal: 140 }           
-        ]
+        ],
+        id: 1
     },
     {
         name: "Farmácia Vida",
@@ -59,7 +65,8 @@ const clients = [
                 { nome: "Band-Aid", preco: 2.99, validade: "2024-08-15", estoque: 120, vendasMes: 35, vendasTotal: 450 },
                 { nome: "Álcool em gel", preco: 3.99, validade: "2024-07-10", estoque: 110, vendasMes: 50, vendasTotal: 800 },
                 { nome: "Máscara descartável", preco: 4.99, validade: "2024-06-05", estoque: 100, vendasMes: 40, vendasTotal: 600 }           
-        ]
+        ],
+        id: 2
     },
     {
         name: "Loja de Conveniência Rápido",
@@ -87,7 +94,8 @@ const clients = [
                 { nome: "Barra de Cereal", preco: 1.49, validade: "2025-02-10", estoque: 100, vendasMes: 35, vendasTotal: 500 },
                 { nome: "Pipoca", preco: 2.99, validade: "2025-01-20", estoque: 40, vendasMes: 20, vendasTotal: 150 },
                 { nome: "Amendoim", preco: 1.99, validade: "2024-12-15", estoque: 50, vendasMes: 25, vendasTotal: 300 }           
-        ]
+        ],
+        id: 3
     },
     {
         name: "Farmácia Saúde Animal",
@@ -116,7 +124,8 @@ const clients = [
                 { nome: "Antisséptico", preco: 5.99, validade: "2024-07-10", estoque: 110, vendasMes: 20, vendasTotal: 250 },
                 { nome: "Termômetro Digital", preco: 19.99, validade: "2024-06-05", estoque: 50, vendasMes: 15, vendasTotal: 200 }
               
-        ]
+        ],
+        id: 4
     },
     {
         name: "Loja de Variedades Útil",
@@ -144,7 +153,8 @@ const clients = [
                 { nome: "Repelente de Insetos", preco: 7.99, validade: "2025-06-05", estoque: 90, vendasMes: 25, vendasTotal: 350 },
                 { nome: "Kit de Ferramentas", preco: 49.99, validade: "2027-05-15", estoque: 30, vendasMes: 5, vendasTotal: 100 },
                 { nome: "Luva de Borracha", preco: 2.99, validade: "2025-04-25", estoque: 120, vendasMes: 35, vendasTotal: 500 }           
-        ]
+        ],
+        id: 5
     },
     // Adicione mais objetos de clientes aqui, se necessário
 ];
@@ -166,6 +176,116 @@ function selectTab(tabname){
     }
 
 
+}
+//Generated Nodes
+function createNode(x, y, client, id)
+{
+    const container = document.getElementById("network-graph")
+
+    let node = document.createElement('div')
+    node.textContent = client.name
+    node.className = 'node';
+    node.id = `node${id}`
+    node.draggable = true;
+    const color = colorCategory(client.category)
+    node.style.backgroundColor = color.fill;
+    node.style.left = `${x}px`;
+    node.style.top = `${y}px`;
+
+    nodes.push({id: `node${id}`});
+
+    enableDrag(node)
+    container.appendChild(node)
+
+}
+
+function AddNodes(){}
+
+function removeNode(){
+  
+}
+
+function renderEdge()
+{
+    connect_nodes.forEach(node => {
+
+        const line = document.getElementById(node.line);
+
+        let A = document.getElementById(node.start);
+        let B = document.getElementById(node.end);
+
+        line.setAttribute("x1", A.offsetLeft + A.offsetWidth / 2 );
+        line.setAttribute("y1", A.offsetTop + A.offsetHeight / 2 );
+        line.setAttribute("x2", B.offsetLeft + B.offsetWidth / 2 );
+        line.setAttribute("y2", B.offsetTop + B.offsetHeight / 2 );
+    })
+}
+
+//Create Edge and bind Connections
+function connecEdge(node1, node2){
+
+    let id = connect_nodes.length;
+
+    const svg = document.getElementById('edges')
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.id = `line${id}`
+    svg.appendChild(line);
+
+    connect_nodes.push({start: node1.id, end: node2.id, line: `line${id}`});
+}
+// Função para habilitar o arraste dos nós
+function enableDrag(node) {
+    const c_mousepos = document.getElementById('mousepos')
+
+    node.onmousedown = function(event) {
+      event.preventDefault();
+      
+        // Centraliza o nó no mouse ao iniciar o arraste
+        let shiftX = event.clientX - node.getBoundingClientRect().left;
+        let shiftY = event.clientY - node.getBoundingClientRect().top;
+        
+       function moveAt(pageX, pageY) {
+         node.style.left = pageX - shiftX - 150 + 'px';
+         node.style.top = pageY - shiftY - 45 + 'px';
+         c_mousepos.textContent = `Mouse X:${pageX}:MouseY:${pageY} ShiftX: ${shiftX}: ShiftY: ${shiftY}`   
+         renderEdge();     
+       }
+ 
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+        //document.onmouseup = null;
+      }
+
+      document.addEventListener('mousemove', onMouseMove);
+
+      document.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.onmouseup = null;
+      };
+    };
+
+    node.ondragstart = function() {
+      return false;
+    };
+
+    renderEdge();
+}
+
+function GeneratedNodes(){
+    
+    let positions = [
+        {x: 743, y: 303 },
+        {x: 394, y: 348 },
+        {x: 368, y: 148 },
+        {x: 673, y: 59 },
+        {x: 1041, y: 133 },
+    ]
+    var i = 0;
+    clients.forEach(client => {
+        let id = nodes.length;
+        createNode(positions[i].x, positions[i].y, client, id)
+        i++;
+    })
 }
 
 //Generated Tab
@@ -376,12 +496,12 @@ function showNodeProperties(index){
         const preco_dist = document.createElement("div");
         let v_preco_dist = prod.preco - (prod.preco * 0.5) //Receita - 50% Distribuidora
         preco_dist.textContent = convertToBRL(v_preco_dist);  
-        preco_dist.setAttribute("id","td-prop")
+        preco_dist.setAttribute("id","td-prop-value")
         row.appendChild(preco_dist);
         //PRECO
         const preco = document.createElement("div");
         preco.textContent = convertToBRL(prod.preco);
-        preco.setAttribute("id","td-prop")
+        preco.setAttribute("id","td-prop-value")
         row.appendChild(preco);
         //IMPOSTO
         const imposto = document.createElement("div");
@@ -394,7 +514,7 @@ function showNodeProperties(index){
         let v_lucro_bruto = prod.preco - v_preco_dist;
         let n_lucro = v_lucro_bruto - (v_lucro_bruto * v_tax);
         lucro.textContent = convertToBRL(n_lucro);
-        lucro.setAttribute("id","td-prop")
+        lucro.setAttribute("id","td-prop-value")
         row.appendChild(lucro);
         //VALIDADE
         const validade = document.createElement("div");
@@ -409,7 +529,7 @@ function showNodeProperties(index){
         //VALOR ESTOQUE
         const valor_estoque = document.createElement("div");
         valor_estoque.textContent = convertToBRL(prod.estoque * prod.preco);
-        valor_estoque.setAttribute("id","td-prop")
+        valor_estoque.setAttribute("id","td-prop-value")
         row.appendChild(valor_estoque);
         //VENDAS MES
         const vendasMes = document.createElement("div");
@@ -419,12 +539,12 @@ function showNodeProperties(index){
         //RECEITA MES BRUTO
         const receita_mes_bruto = document.createElement("div");
         receita_mes_bruto.textContent = convertToBRL(prod.vendasMes * prod.preco);
-        receita_mes_bruto.setAttribute("id","td-prop")
+        receita_mes_bruto.setAttribute("id","td-prop-value")
         row.appendChild(receita_mes_bruto);
         //RECEITA MES LIQUIDO
         const receita_mes_liquido = document.createElement("div");
         receita_mes_liquido.textContent = convertToBRL(prod.vendasMes * n_lucro);
-        receita_mes_liquido.setAttribute("id","td-prop")
+        receita_mes_liquido.setAttribute("id","td-prop-value")
         row.appendChild(receita_mes_liquido);
         //VENDAS TOTAIS
         const vendasTotal = document.createElement("div");
@@ -434,12 +554,12 @@ function showNodeProperties(index){
         //RECEITA TOTAIS BRUTO
         const receita_total_bruto = document.createElement("div");
         receita_total_bruto.textContent = convertToBRL(prod.vendasTotal *  prod.preco );
-        receita_total_bruto.setAttribute("id","td-prop")
+        receita_total_bruto.setAttribute("id","td-prop-value")
         row.appendChild(vendasTotal);
         //RECEITA TOTAIS LIQUIDO
         const receita_total_liquido = document.createElement("div");
         receita_total_liquido.textContent = convertToBRL(prod.vendasTotal * n_lucro );
-        receita_total_liquido.setAttribute("id","td-prop")
+        receita_total_liquido.setAttribute("id","td-prop-value")
         row.appendChild(receita_total_liquido);
 
         table.appendChild(row)
@@ -515,18 +635,30 @@ function convertToBRL(valor) { return valor.toLocaleString('pt-BR', { style: 'cu
 //Change colors
 function colorCategory(category){
 
+    var objeto = {fill: "#b4b4b4", text: "#5f5f5f"}
+
     switch(category){
         case "Supermercado":
-            return {fill: "#ff9393", text: "#ab0000"}
+            objeto = {fill: "#ff9393", text: "#ab0000"}
+            break;
         case "Farmácia":
-            return {fill: "#93ff95", text: "#005e02"}
+            objeto = {fill: "#93ff95", text: "#005e02"}
+            break;
         case "Conveniência":
-            return {fill: "#fffd93", text: "#6a3b02"}
+            objeto = {fill: "#fffd93", text: "#6a3b02"}
+            break;
         case "Comércio Geral":
-            return {fill: "#b8b8ff", text: "#393979"}
+            objeto = {fill: "#b8b8ff", text: "#393979"}
+            break;
+        case "Distribuidora":
+            objeto = {fill: "#b8b8ff", text: "#393979"}
+            break;
         default:
-            return {fill: "#b4b4b4", text: "#5f5f5f"}
+            objeto = {fill: "#b4b4b4", text: "#5f5f5f"}
+            break;
     }
+
+    return objeto
 }
 //DEBUG
 if(debugNodeProps){
@@ -535,6 +667,31 @@ if(debugNodeProps){
     showNodeProperties(4)   //Deve ser resetado
 }
 
-//Initialize Tab
-selectTab("Nodes");
+//Initialize Program
+UpdateDashboardCard();
+GeneratedNodes();
+selectTab("Network");
 generateTab();
+
+console.log("Number Nodes Created: " + nodes.length);
+console.log("Connections Nodes: " + connect_nodes.length)
+console.log(connect_nodes)
+
+connecEdge(nodes[0], nodes[1])
+connecEdge(nodes[0], nodes[2])
+connecEdge(nodes[0], nodes[3])
+connecEdge(nodes[0], nodes[4])
+
+connecEdge(nodes[1], nodes[1])
+connecEdge(nodes[2], nodes[2])
+connecEdge(nodes[3], nodes[3])
+connecEdge(nodes[4], nodes[4])
+
+connecEdge(nodes[1], nodes[2])
+connecEdge(nodes[3], nodes[4])
+connecEdge(nodes[0], nodes[1])
+connecEdge(nodes[2], nodes[2])
+
+connecEdge(nodes[2], nodes[4])
+
+renderEdge()
