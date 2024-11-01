@@ -1,2 +1,1 @@
-const body = document.getElementById("editor")
-body.remove()
+alert("testando o sim")
