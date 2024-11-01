@@ -174,8 +174,6 @@ function selectTab(tabname){
             document.getElementById(id).style.display = "none"
         }
     }
-
-
 }
 //Generated Nodes
 function createNode(x, y, client, id)
@@ -197,12 +195,6 @@ function createNode(x, y, client, id)
     enableDrag(node)
     container.appendChild(node)
 
-}
-
-function AddNodes(){}
-
-function removeNode(){
-  
 }
 
 function renderEdge()
