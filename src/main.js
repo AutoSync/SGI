@@ -159,18 +159,24 @@ const clients = [
 ];
 
 function selectTab(tabname){
-    var i, tabcontent, childs;
+    var i, tabcontent, childs, containerButtons, links;
     tabcontent = document.getElementById("tabs")
+    containerButtons = document.getElementById("container-buttons-sidebar")
     childs = tabcontent.children
+    links = containerButtons.children
 
     for(i = 0; i < childs.length; i++){
 
-        const id = childs[i].id
-        if(id == tabname){
-            document.getElementById(id).style.display = "block"
+        const tab_id = childs[i].id
+        const button_id = links[i].id;
+
+        if(tab_id == tabname){
+            document.getElementById(tab_id).style.display = "block"
+            document.getElementById(button_id).className = "sidebar-button-active"
         }
         else{
-            document.getElementById(id).style.display = "none"
+            document.getElementById(tab_id).style.display = "none"
+            document.getElementById(button_id).className = "sidebar-button"
         }
     }
 }
@@ -225,7 +231,7 @@ function connecEdge(node1, node2){
 // Função para habilitar o arraste dos nós
 function enableDrag(node) {
 
-    const gapX = document.getElementById("tools").offsetWidth
+    const gapX = document.getElementById("sidebar").offsetWidth
     const gapY = document.getElementById("Network").offsetHeight
 
     node.onmousedown = function(event) {
@@ -657,7 +663,7 @@ if(debugNodeProps){
 //Initialize Program
 UpdateDashboardCard();
 GeneratedNodes();
-selectTab("Network");
+selectTab("Dashboard");
 generateTab();
 
 console.log("Number Nodes Created: " + nodes.length);

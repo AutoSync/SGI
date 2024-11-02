@@ -4,117 +4,166 @@
     box-sizing: border-box;
 
     font-family: "Roboto", sans-serif;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
-}
 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* EDITOR */
 .editor{
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100vh;
+    overflow: auto;
+
     display: flex;
     flex-direction: row;
 
-    background-color: rgb(230, 233, 241);
+    background-color: #11161C;
 }
-#tools{
+/* SIDEBAR MENU OF SWITCH TABS */
+#sidebar{
     width: 150px;
-    height: 100%;
-    background-color: whitesmoke;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+
+    background-color: #29303A;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    padding-left: 10px;
 }
-#tools button{
+/* LOGO SGI CONTAINER */
+#logo{
+
+    width: 100%;
+    height: 80px;
+    padding: 5px 10px 10px 5px;
+
+}
+/* LOGO SGI SVG */
+#logo-svg{
+    width: 80px;
+    height: 80px;
+}
+/* BUTTON SIDEBAR IS CLASS */
+.sidebar-button, .sidebar-button-active{
+    width: 140px;
+    height: 35px;
+    border: none;
+    transition: 300ms;
+
+    background-color: transparent;
+    color: #B3B3B3;
+
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
-    border: none;
+    
+}
+.sidebar-button:hover{
+    background-color: #445061;  
+}
+.sidebar-button-active{
+    background-color: #1D2229;
+    color: #FFCC00;
+    border-right: 5px solid #FFCC00;
+}
+#sidebar-button-title{
+    font-weight: 400;
+    font-size: 12pt;
 
-    width: 150px;
-    height: 50px;
-
-    transition: 200ms;
-    background-color: transparent;
-
-}
-#tools button:hover{
-    background-color: rgb(221, 202, 240);
-    color: rgb(96, 64, 105);
-    cursor: pointer;
-}
-#tools button:focus{
-    background-color: rgb(204, 183, 221);
-}
-#toolslabel{
-    width: 10px;
-    height: 100%;
-    background-color: rgb(162, 107, 207);
-    display: none;
-}
-#tools i{
-    margin-left: 1em;
-}
-#tools h1 {
-    font-size: medium;
-    font-weight: 300;
-    margin-left: 1em;
-}
-/* TABS */
-#tabs{
-    width: 100%;
-    height: 100vh;
+    margin-left: 10px;
 }
 #tab-title, #tab-nodes-dashboard,#tab-nodes-title, #tab-network-title{
     margin-left: 1em;
     font-weight: 800;
+    color: #FFCC00;
+    
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20pt;
+}
+#tabs{
+    width: 100%;
+    height: 100vh;
+
 }
 /* DASHBOARD */
+#Dashboard{
+    width: 100%;
+    max-height: 100%;
+    
+    margin-top: 1em;
 
+    overflow: auto;
+}
 /* CARDS */
-#card-bar{
+#cards{
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
 }
 
-#card{
+#card-main{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+
+    margin: 1em;
+    padding: .5em;
+
+    border-radius: 5px;
+    
     width: 200px;
     height: 150px;
-    background-color: white;
-    transition: 200ms;
-    border-radius: 5px;
-    margin: 1em;
-    padding: 1em;
-    box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.1);
-  
-}
 
-#card:hover{
+    background-color: #29303A;
+    color: #B3B3B3;
+    
+    transition: 200ms;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+
+}
+#card-main:hover{
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
     scale: 1.02;
 }
 
-#card-header h3{
-    font-size: small;
+#card-data-start, #card-data-end{
+    width: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+#card-data-end{
+    align-items: end;
+}
+#card-main h3{
+    font-size: 10pt;
     font-weight: 500;
-    color: rgb(70, 70, 70);
-    
 }
 
-/* #card-main {
-
-} */
-
-#card-values{
+.card-values{
     font-family: "Rubik", sans-serif;
     font-weight: 300;
+    font-size: 18pt;
 }
 
 /* NETWORK */
 
 .graph, .svg-edges{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
-    border: 1px solid #ccc;
     overflow: hidden
 }
 

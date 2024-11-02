@@ -1,44 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <title>SGI</title>
+    <title>AutoSync SGI</title>
 </head>
 <body>
     <div class="editor">
 
-        <div class="toolbar">
+        <div class="toolbar" id="sidebar">
 
-            <div class="logo">
-
+            <div id="logo">
+                <img id="logo-svg" src="./public/sgi_logo_demo.svg" alt="logo demo"/>
             </div>
-
-            <div id="tools">
-
-                <button onclick="selectTab('Dashboard')">
-                    <div id="toolslabel"></div>
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    <h1>Painel</h1>
-                </button>
-
-                <button onclick="selectTab('Network')">
-                    <div id="toolslabel"></div>
+            <div id="container-buttons-sidebar">
+                    <button class="sidebar-button" id="Dashbord-btn" onclick="selectTab('Dashboard')">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <h1 id="sidebar-button-title" >Painel</h1>
+                    </button>
+                    
+                <button class="sidebar-button" id="Network-btn" onclick="selectTab('Network')">
                     <i class="fa-solid fa-globe"></i>
-                    <h1>Network</h1>
+                    <h1 id="sidebar-button-title">Rede</h1>
                 </button>
 
-                <button onclick="selectTab('Nodes')">
-                    <div id="toolslabel"></div>
+                <button class="sidebar-button" id="Nodes-btn" onclick="selectTab('Nodes')">
                     <i class="fa-solid fa-circle-nodes"></i>
-                    <h1>Nodes</h1>
+                    <h1 id="sidebar-button-title">Nós</h1>
                 </button>
 
-            </div>
+                <button class="sidebar-button" id="Orders-btn" onclick="selectTab('Orders')">
+                    <i class="fa-solid fa-sheet-plastic"></i>
+                    <h1 id="sidebar-button-title">Pedidos</h1>
+                </button>
+
+                <button class="sidebar-button" id="Sales-btn" onclick="selectTab('Sales')">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <h1 id="sidebar-button-title">Vendas</h1>
+                </button>
+        </div>
 
         </div>
 
@@ -51,48 +55,54 @@
 
                 <div id="mainframe">
 
-                   <div id="card-bar">
-                        <div id="card">
-                            <div id="card-header">
-                                <h3>Total de vendas</h3>
-                                <i class="fa-solid fa-arrow-trend-up"></i>
-                            </div>
-                            <div id="card-main">
-                                <h3 id="card-total-sales">1234</h3>
-                                <button onclick="selectTab('Nodes')">
-                                    Marketshare Total
-                                </button>
-                            </div>
-                            
-                        </div>
+                   <div id="cards">
 
-                        <div id="card">
-                            <div id="card-header">
-                                <h3>Transações</h3>
-                                <i class="fa-solid fa-arrows-h"></i>
+                    <div id="card-main">
+                        <div id="card-data-start">
+                            <div id="card-icon">
+                                <img src="../src/public/sales-card-icon.svg" />
                             </div>
-                            <div id="card-main">
-                                <h3 id="card-transactions">1234</h3>
-                                <button onclick="selectTab('Nodes')">
-                                    Transações
-                                </button>
-                            </div>
-                            
+                            <h3>Venda ultimo mês</h3>
+                            <h3 class="card-values" id="card-total-sales">1234</h3>
                         </div>
+                        <div id="card-data-end">
+                            <button onclick="selectTab('Sales')">
+                                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                            </button>
+                        </div>
+                    </div>
 
-                        <div id="card">
-                            <div id="card-header">
-                                <h3>Nos</h3>
-                                <i class="fa-solid fa-circle-nodes"></i>
+                    <div id="card-main">
+                        <div id="card-data-start">
+                            <div id="card-icon">
+                                <img src="../src/public/sales-card-icon.svg" />
                             </div>
-                            <div id="card-main">
-                                <h3 id="card-nodes-values">1234</h3>
-                                <button onclick="selectTab('Nodes')">
-                                    Nodes
-                                </button>
-                            </div>
-                            
+                            <h3>Operações</h3>
+                            <h3 class="card-values" id="card-transactions">1234</h3>
                         </div>
+                        <div id="card-data-end">
+                            <button onclick="selectTab('Orders')">
+                                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="card-main">
+                        <div id="card-data-start">
+                            <div id="card-icon">
+                                <img src="../src/public/sales-card-icon.svg" />
+                            </div>
+                            <h3>Nós</h3>
+                            <h3 class="card-values" id="card-nodes-values">1234</h3>
+                        </div>
+                        <div id="card-data-end">
+                            <button onclick="selectTab('Nodes')">
+                                <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                       
                    </div>
 
                 </div>
@@ -116,7 +126,7 @@
 
             <div id="Nodes">
                 <div id="header-nodes">
-                    <h1 id="tab-nodes-title">Nodes</h1>
+                    <h1 id="tab-title">Nodes</h1>
                     <div id="nodes-container-btns">
                         <button id="tab-nodes-btn"><i id="new-node-btn" class="fa-solid fa-plus"></i></button>
                         <button id="tab-settings-node-btn"><i id="new-node-btn" class="fa-solid fa-gear"></i></button>
@@ -137,6 +147,14 @@
                     <!-- Auto Fill -->             
                 </div>
                 
+            </div>
+
+            <div id="Orders">
+                <h3 id="tab-title">Orders</h3>
+            </div>
+
+            <div id="Sales">
+                <h3 id="tab-title">Sales</h3>
             </div>
 
         </div>
