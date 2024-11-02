@@ -1,0 +1,13 @@
+{
+  "name": "sgi",
+  "version": "0.10.0",
+  "description": "integrated management system",
+  "main": "main.js",
+  "repository": "https://github.com/AutoSync/system_graph_integrated.git",
+  "author": "erick andrade",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
