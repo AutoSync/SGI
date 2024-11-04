@@ -42,7 +42,7 @@ const Client_Tab = () => {
                         {cliente.categoria}
                     </div>
                     <div className="node-td">
-                        <a key={index} className="node-td-link" href="/sales"> Link </a>
+                        <a key={index} className="node-td-link" href="/ClientesApp"> Link </a>
                     </div>
                 </div>
             ))
