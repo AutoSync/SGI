@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#editor{
+    width: 100%;
+    height: 100vh;
+
+    background-color: #11161C;
+}
+
+/* TAB CONTROL */
+/*TABCONTROL MAIN APP*/
+.tab-control-main{
+    display: flex;
+    flex-direction: row; 
+}
+/*SIDEBAR MAIN APP*/
+.sidebar-main{
+
+    width: 100px;
+    height: 100vh;
+    min-width: 5vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #29303A;
+}
+
+.tab-button, .tab-button.active{
+
+    width: 100%;
+    height: 30px;
+
+    border: none;
+    transition: 300ms;
+
+    background-color: transparent;
+    border-right: 0px solid transparent;
+    color: #B3B3B3;
+
+}
+.tab-button:hover{
+    background-color: #3f4a58;
+    cursor: pointer;
+
+}
+.tab-button.active{
+    color: #FFCC00;
+    border-right: 5px solid #FFCC00;
+}
+.tab-title{
+    color: #FFCC00;
+    font-weight: 600;
+}
+.tab-content{
+    
+}
+
+
+/* DASHBOARD */
+.Dashboard{
+
+}
+/* NETWORK */
+.Network{
+
+}
+
+/* NODES */
+
+.tab-control-nodes{
+    
+}
+.tab-sidebar-nodes{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+
+    background-color: #29303A;
+}
+.tab-button-nodes{
+    background-color: transparent;
+    border: none;
+    color: #b3b3b3;
+    transition: 200ms;
+    padding: 1em 2em 1em 2em;
+}
+.tab-button-nodes:hover{
+    color: #FFCC00;
+    background-color: #3f4a58;
+    cursor: pointer;
+}
+.tab-button-nodes.active{
+    color: #FFCC00;
+    border-bottom: 5px solid #FFCC00;
+
+}
+
+.Nodes{
+    width: 100%;
+    height: 100vh;
+}
+
+.node-client-tab{
+}
+.node-table{
+    padding: 2em;
+    margin: .2em;
+}
+
+.node-head-tr, .node-tr, .node-tr-last{
+    background-color: #3c4755;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #FFCC00;
+
+    height: 50px;
+}
+.node-head-td{
+    color: #29303A;
+    padding: 1em;
+
+    font-size: medium;
+    font-weight: 600;
+}
+.node-tr, .node-tr-last{
+    background-color: #29303A;
+    border: 1px solid #181c22;
+    transition: 200ms;
+    border-radius: 0;
+
+    height: 35px;
+
+}
+.node-tr:hover{
+    background-color: #3f4a58;
+    border: 1px solid #5d6c80;
+}
+.node-tr-last{
+    border-radius: 0 0 5px 5px;
+}
+.node-td, .node-head-td, .node-td-large,.node-head-td-large{
+    color: #B3B3B3;
+    padding: 5px 10px 5px 10px;
+}
+.node-head-td, .node-head-td-large{
+    font-weight: 400;
+
+}
+.node-td-large, .node-head-large{
+    max-width: 150px;
+}
+
+.node-td-link{
+    background-color: rgb(55, 161, 108);
+    border-radius: 5px;
+    padding: 5px;
+    color: #252525;
+    text-decoration: none;
+}
+.node-td-link:visited{
+    color: #252525;
+}
+/* ORDERS */
+/* SALES */
+
+
+
+
+
