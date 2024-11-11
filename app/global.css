@@ -6,24 +6,34 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
-#editor{
+.editor{
     width: 100%;
     height: 100vh;
 
-    background-color: #11161C;
+    background: rgb(17,27,28);
+    background: linear-gradient(304deg, rgba(17,27,28,1) 0%, rgba(29,35,43,1) 100%);
+}
+
+/* LANDING PAGE */
+
+.landing-header-container, .landing-features-container, 
+.landing-tools-container, .landing-sims-container,
+.landing-footer-container{
+    width: 100%;
+    height: 100vh;
+    border: 1px solid #FFCC00;
 }
 
 /* TAB CONTROL */
 /*TABCONTROL MAIN APP*/
-.tab-control-main{
+.tab-control-vert{
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 }
 /*SIDEBAR MAIN APP*/
-.sidebar-main{
+.tab-sidebar-vert{
 
-    width: 100px;
+    width: 150px;
     height: 100vh;
     min-width: 5vw;
 
@@ -32,10 +42,9 @@
     justify-content: flex-start;
     align-items: center;
 
-    background-color: #29303A;
+    border-right: 1px solid #3e454f;
 }
-
-.tab-button, .tab-button.active{
+.tab-button-vert, .tab-button-vert.active{
 
     width: 100%;
     height: 30px;
@@ -44,39 +53,190 @@
     transition: 300ms;
 
     background-color: transparent;
-    border-right: 0px solid transparent;
-    color: #B3B3B3;
+    border-right: 5px solid transparent;
+    color: #465263
 
 }
-.tab-button:hover{
-    background-color: #3f4a58;
+.tab-button-vert:hover{
+    background-color: #6b7480;
     cursor: pointer;
-
 }
-.tab-button.active{
-    color: #FFCC00;
+.tab-button-vert.active{
+    color: #B3B3B3;
     border-right: 5px solid #FFCC00;
 }
 .tab-title{
     color: #FFCC00;
     font-weight: 600;
+    font-size: 14pt;
 }
-/* .tab-content{
+
+/* TABCONTROL HORIZON */
+
+.tab-sidebar-horizon{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+
+    height: 80px;
+
+    border-bottom: 1px solid #3e454f;
+}
+
+.tab-button-horizon, .tab-button-horizon:hover, .tab-button-horizon.active{
+    border: none;
+    padding: 1rem;
+    background-color: transparent;
+    color: #465263;
+    transition: 200ms;
+    border-top: 5px solid transparent;
+
+}
+.tab-button-horizon:hover{
+    background-color: #6b7480;
+    cursor: pointer;
+    border-top: 5px solid transparent;
+}
+.tab-button-horizon.active{
+    border-top: 5px solid #FFCC00;
+    color: #B3B3B3;
+}
+
+ /* CARD CONTAINER */
+ .card-bar{
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    color: #B3B3B3;
+ }
+/* CARD*/
+ .card{
+    width: 200px;
+    height: 150px;
+
+    background-color: #505050;
+    border-radius: 5px;
+
+    margin: 5px;
+
+    border: 1px solid transparent;
+    transition: 300ms;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+ }
+ .card::before{
+    content: "";
+    background: rgb(0,0,0);
+    background: linear-gradient(56deg, rgba(0,0,0,1) 0%, rgba(199,130,0,1) 49%, rgba(73,74,74,1) 100%);
+    position: absolute;
+    z-index: -1;
+    filter: blur(20px);
+    width: 50%;
+    height: 50%;
+ }
+ .card:hover{
+    border: 1px solid whitesmoke;
+ }
+ .card-icon-division{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    font-size: 18pt;
+ }
+ .card-title{
+    font-size: 12pt;
+ }
+ .card-description{
+    font-size: 10pt;
+ }
+
+ .card-values{
+    font-family: "Rubik", sans;
+    font-weight: 300;
+ }
+ .card-link, .card-link:hover, .card-link:visited{
+    text-decoration: none;
+    color: #B3B3B3;
+    margin-left: 10px;
+    border-radius: 10px solid transparent;
+ }
+ .card-link:hover{
+    text-decoration: none;
+    border-radius: 10px solid #b3b3b3;
+ } .card-link:visited{
+    text-decoration: none;
+ }
+
+ /* DASHBOARD */
+ .dashboard{
+    display: grid;
+    grid-template-areas: "dash toolbar";
     
-} */
+    width: 100%;
+    height: 100%;
+ }
+ .dashboard-dash{
+    
+    padding: 1em;
+
+    grid-area: "dash";
+ }
+
+ .dashboard-toolbar{
+    
+
+    grid-area: "toolbar";
+}
+
+.dashboard-transactions{
+
+}
+.dash-trans-title{
+    color: #B3B3B3;
+}
+.dash-trans-list{
+    overflow: auto;
+}
+.dash-trans-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.dash-trans-info, .dash-trans-info-values{
+    color: #B3B3B3;
+    padding: 1em;
+    font-size: 12pt;
+    font-weight:300 ;
+}
+.dash-trans-info-values{
+    font-family: 'Rubik, sans';
+}
+.dash-trans-icon{
+    color: #B3B3B3;
+}
 
 
-/* DASHBOARD */
-/* .Dashboard{
-
-} */
 /* NETWORK */
 /* .Network{
 
 } */
 
 /* NODES */
-
+.nodes{
+    padding: 1em;
+}
 /* .tab-control-nodes{
     
 } */
@@ -105,7 +265,6 @@
 .tab-button-nodes.active{
     color: #FFCC00;
     border-bottom: 5px solid #FFCC00;
-
 }
 
 .Nodes{
@@ -115,65 +274,68 @@
 
 .node-client-tab{
 }
-.node-table{
+#node-table{
     padding: 2em;
     margin: .2em;
 }
 
-.node-head-tr, .node-tr, .node-tr-last{
+#node-head-tr, #node-tr, #node-tr-last{
     background-color: #3c4755;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
     border-radius: 5px 5px 0 0;
     border-bottom: 1px solid #FFCC00;
-
+    
     height: 50px;
 }
-.node-head-td{
+#node-head-td{
     color: #29303A;
     padding: 1em;
 
     font-size: medium;
     font-weight: 600;
+
+    border: none;
+    background-color: transparent;
 }
-.node-tr, .node-tr-last{
+#node-tr, #node-tr-last{
     background-color: #29303A;
     border: 1px solid #181c22;
     transition: 200ms;
     border-radius: 0;
 
     height: 35px;
-
 }
-.node-tr:hover{
+#node-tr:hover{
     background-color: #3f4a58;
     border: 1px solid #5d6c80;
 }
-.node-tr-last{
+#node-tr-last{
     border-radius: 0 0 5px 5px;
 }
-.node-td, .node-head-td, .node-td-large,.node-head-td-large{
+#node-td, #node-head-td, #node-td-large, #node-head-td-large{
     color: #B3B3B3;
     padding: 5px 10px 5px 10px;
 }
-.node-head-td, .node-head-td-large{
+#node-head-td, #node-head-td-large{
     font-weight: 400;
 
 }
-.node-td-large, .node-head-large{
+#node-td-large, #node-head-large{
     max-width: 150px;
 }
 
-.node-td-link{
+#node-td-link{
     background-color: rgb(55, 161, 108);
     border-radius: 5px;
     padding: 5px;
     color: #252525;
     text-decoration: none;
 }
-.node-td-link:visited{
+#node-td-link:visited{
     color: #252525;
 }
 /* ORDERS */

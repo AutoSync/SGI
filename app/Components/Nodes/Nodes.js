@@ -1,10 +1,15 @@
-import { clientes } from "../../data/clientes/clientes"
-import { distribuidoras } from "../../data/distribuidoras/distribuidoras"
-import { produtores } from "../../data/produtores/produtores"
+"use client"
+import Link from "next/link"
+
 import { LimitText } from "../../Resources/LimitText"
 import { TabControl } from "../TabControl/TabControl"
+import { DataBase } from "../../data/database"
+import React, { useState } from "react"
 
-const client_list = clientes
+const produtos = DataBase.products
+const clientes = DataBase.clients
+const distribuidoras = DataBase.dists
+const produtores = DataBase.factories
 
 const tabStyles = { tabControl: "tab-control-nodes", 
     sidebar: "tab-sidebar-nodes", 
@@ -13,36 +18,28 @@ const tabStyles = { tabControl: "tab-control-nodes",
 
 const Client_Tab = () => {
     return <div className="node-client-tab">
-        <div className="node-table">
+        <div id="node-table">
 
-                <div className="node-head-tr">
-                    <div className="node-head-td">ID</div>
-                    <div className="node-head-td-large">Nome</div>
-                    <div className="node-head-td">Rede</div>
-                    <div className="node-td-large">Cidade</div>
-                    <div className="node-head-td">categoria</div>
-                    <div className="node-head-td">Abrir</div>
+                <div id="node-head-tr">
+                    <div id="node-head-td">ID</div>
+                    <div id="node-head-td-large">Nome</div>
+                    <div id="node-head-td">Rede</div>
+                    <div id="node-td-large">Cidade</div>
+                    <div id="node-head-td">categoria</div>
+                    <div id="node-head-td">Estoque</div>
+                    <div id="node-head-td">Abrir</div>
                 </div>
             {
-            client_list.map((cliente, index) => (
-                <div className={index == client_list.length -1 ? "node-tr-last" : "node-tr"}>
-                    <div className="node-td">
-                        {cliente.identificacao}
-                    </div>
-                    <div className="node-td-large">
-                        {LimitText(cliente.nome, 10)}
-                    </div>
-                    <div className="node-td">
-                        {cliente.rede ? cliente.rede : "n/a"}
-                    </div>
-                    <div className="node-td-large">
-                        {LimitText(cliente.cidade, 10)}
-                    </div>
-                    <div className="node-td">
-                        {cliente.categoria}
-                    </div>
-                    <div className="node-td">
-                        <a key={index} className="node-td-link" href="/ClientesApp"> Link </a>
+            clientes.map((cliente, index) => (
+                <div id={index == clientes.length -1 ? "node-tr-last" : "node-tr"}>
+                    <div id="node-td"> {cliente.userId}</div>
+                    <div id="node-td-large"> {LimitText(cliente.name, 10)}</div>
+                    <div id="node-td"> {cliente.network ? cliente.network : "n/a"}</div>
+                    <div id="node-td-large">{LimitText(cliente.city, 10)}</div>
+                    <div index="node-td">{cliente.category}</div>
+                    <div id="node-td">{cliente.products.length}</div>
+                    <div id="node-td">
+                        <Link key={index} className="node-td-link" href={`/`}> Link </Link>
                     </div>
                 </div>
             ))
@@ -50,24 +47,23 @@ const Client_Tab = () => {
                 </div>
     </div>
 }
-
 const DistTab = () => {
     return <div className="node-dist-tab">
 
-        <div className="node-table">
-                <div className="node-head-tr">
-                    <div className="node-head-td">Identicador</div>
-                    <div className="node-head-td">Nome</div>
-                    <div className="node-head-td">Cidade</div>
-                    <div className="node-head-td">Abrir</div>
+        <div id="node-table">
+                <div id="node-head-tr">
+                    <div id="node-head-td">Identicador</div>
+                    <div id="node-head-td">Nome</div>
+                    <div id="node-head-td">Cidade</div>
+                    <div id="node-head-td">Abrir</div>
                 </div>
                 {
                     distribuidoras.map((dist, index) => (
-                        <div className={index == distribuidoras.length - 1 ? "node-tr-last" : "node-tr"}>
-                            <div className="node-td">{dist.identificador}</div>
-                            <div className="node-td">{LimitText(dist.nome, 10)}</div>
-                            <div className="node-td">{LimitText(dist.cidade, 10)}</div>
-                            <button key={index} className="node-table-button">Abrir</button>
+                        <div id={index == distribuidoras.length - 1 ? "node-tr-last" : "node-tr"}>
+                            <div id="node-td">{dist.userId}</div>
+                            <div id="node-td">{LimitText(dist.name, 10)}</div>
+                            <div id="node-td">{LimitText(dist.city, 10)}</div>
+                            <button key={index} id="node-table-button">Abrir</button>
                         </div>
                     ))
                 }
@@ -75,29 +71,26 @@ const DistTab = () => {
 
     </div>
 }
-
-const Produtores = () => {
+const Fabricantes = () => {
     return <div className="node-dist-tab">
 
-    <div className="node-table">
-            <div className="node-head-tr">
-                <div className="node-head-td">Identicador</div>
-                <div className="node-head-td">Nome</div>
-                <div className="node-head-td">Cidade</div>
-                <div className="node-head-td">Endereço</div>
-                <div className="node-head-td">Categoria</div>
-                <div className="node-head-td">Contato</div>
-                <div className="node-head-td">Abrir</div>
+    <div id="node-table">
+            <div id="node-head-tr">
+                <div id="node-head-td">Identicador</div>
+                <div id="node-head-td">Nome</div>
+                <div id="node-head-td">Cidade</div>
+                <div id="node-head-td">Categoria</div>
+                <div id="node-head-td">Contato</div>
+                <div id="node-head-td">Abrir</div>
             </div>
             {
                 produtores.map((prod, index) => (
-                    <div className={index == prod.length - 1 ? "node-tr-last" : "node-tr"}>
-                        <div className="node-td">{prod.identificador}</div>
-                        <div className="node-td">{LimitText(prod.nome, 15)}</div>
-                        <div className="node-td">{LimitText(prod.cidade, 15)}</div>
-                        <div className="node-td">{prod.endereco}</div>
-                        <div className="node-td">{prod.categoria}</div>
-                        <div className="node-td">{prod.contato}</div>
+                    <div id={index == produtores.length - 1 ? "node-tr-last" : "node-tr"}>
+                        <div id="node-td">{prod.userId}</div>
+                        <div id="node-td">{LimitText(prod.name, 15)}</div>
+                        <div id="node-td">{LimitText(prod.city, 15)}</div>
+                        <div id="node-td">{prod.category}</div>
+                        <div id="node-td">{prod.contact[0]}</div>
                         <button key={index} className="node-table-button">Abrir</button>
                     </div>
                 ))
@@ -106,20 +99,58 @@ const Produtores = () => {
 
 </div>
 }
+const Produtos = () => {
 
+    return <div className="node-products-tab">
+        <div id="node-table">
+            <div id="node-head-tr">
+                <button id="node-head-td">SKU</button>
+                <button id="node-head-td">Nome</button>
+                <button id="node-head-td">Marca</button>
+                <button id="node-head-td">Variante</button>
+                <button id="node-head-td">Categoria</button>
+                <button id="node-head-td">Tipo</button>
+                <button id="node-head-td">É Frios</button>
+                <button id="node-head-td">Codigo de Barras</button>
+                <button id="node-head-td">Imposto</button>
+                <button id="node-head-td">Preco Médio</button>
+                <button id="node-head-td">Fabricante</button>
+            </div>
+            {
+                produtos.map((produto, index) => (
+                    <div id={index == produtos.length - 1 ? "node-tr-last" : "node-tr"}>
+                        <div id="node-td">{produto.sku}</div>
+                        <div id="node-td">{produto.name}</div>
+                        <div id="node-td">{produto.brand}</div>
+                        <div id="node-td">{produto.variant}</div>
+                        <div id="node-td">{produto.category}</div>
+                        <div id="node-td">{produto.type}</div>
+                        <div id="node-td">{produto.cold_storage}</div>
+                        <div id="node-td">{produto.barCode}</div>
+                        <div id="node-td">{produto.tax}</div>
+                        <div id="node-td">{produto.buy}</div>
+                        <div id="node-td">{produto.factory.userId}</div>
+                 </div>
+                ))
+            }
+        </div>
+    </div>
+}
 const TabData = [
+    { label: "Produtos", content: Produtos()},
     { label: "Clientes", content: Client_Tab()},
     { label: "Distribuidoras", content: DistTab()},
-    { label: "Produtores", content: Produtores()},
+    { label: "Fabricantes", content: Fabricantes()},
 ]
 
 export const Nodes = () =>{
+
     return <div className="Nodes">
         <h1 className="tab-title">Nós</h1>
 
     <TabControl 
-    tabData={TabData}
-    tabStyles={tabStyles}
+        tabData={TabData}
+        tabStyles={tabStyles}
     />
     </div>
 }
