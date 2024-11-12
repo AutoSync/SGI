@@ -38,7 +38,6 @@ export const Transactions = ({transData}) =>{
         return <div className="dash-trans-icon">{icon}</div>
     }
 
-
     return <div className="dashboard-transcations">
         <h3 className="dash-trans-title">Transacões</h3>
         <input placeholder="Filtrar"/>

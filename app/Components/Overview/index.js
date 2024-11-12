@@ -4,10 +4,6 @@ import { Transactions } from "../Transactions";
 
 
 
-
-
-
-
 export function Overview(){
     return <div className="dashboard-dash">
         <h1 className="tab-title">Painel</h1>
