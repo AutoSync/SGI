@@ -33,20 +33,18 @@
     background-color: white;
     background-size: cover;
     background-position: center;
+
+    justify-content: space-between;
 }
 
-.landing-credits-photo, a, a:visited{
-    position: relative;
-    top: 90%;
-    left: 0%;
-
+.landing-credits-photo,.landing-credits-link, .landing-credits-link:visited{
     font-size: 12pt;
     padding: 1em;
     color: white;
 
     text-align: right;
+    margin-bottom: 1em;
 }
-
 .landing-erp-box-center{
     
     width: 650px;

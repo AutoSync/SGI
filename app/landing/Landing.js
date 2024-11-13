@@ -27,8 +27,12 @@ const Erp = () =>{
 
         </div>
 
-        <h3 className="landing-credits-photo">Foto de <a href="https://unsplash.com/pt-br/@marcinjozwiak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcin Jozwiak</a> na <a href="https://unsplash.com/pt-br/fotografias/caminhoes-estacionados-kGoPcmpPT7c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-        </h3>
+        <div className="landing-credits-photo">
+            Foto de 
+            <a className="landing-credits-link" href="https://unsplash.com/pt-br/@marcinjozwiak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcin Jozwiak</a> 
+            na 
+            <a className="landing-credits-link" href="https://unsplash.com/pt-br/fotografias/caminhoes-estacionados-kGoPcmpPT7c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+        </div>
         
     </div>
 }
