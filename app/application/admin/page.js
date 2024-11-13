@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Dashboard } from "../../Components/Dashboard/Dashboard";
 import { TabControl } from "../../Components/TabControl/TabControl";
 import Logo from "../../public/icons/autosyncsgi_logo.svg"
+import AbsolutBank from "../../public/icons/absolutbank.svg"
 import { NodesTab } from "../../Components/NodesTab/NodesTab";
 
 
@@ -16,8 +17,8 @@ const Header = () => {
 }
 
 const Footer = () => {
-    return <div>
-        <h3>AutoSync SGI</h3>
+    return <div className="admin-footer">
+        <Image src={AbsolutBank} alt="Absoluto bank" width={200} height={250} />
     </div>
 }
 
@@ -32,7 +33,7 @@ export default function Admin(){
         { label: "x", content: Footer(), type: true},
     ]}
     direction={"V"}
-    indexActive={1}    
+    indexActive={2}    
     />
          
     </div>

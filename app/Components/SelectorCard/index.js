@@ -41,15 +41,6 @@ const MyStyle = {
     SelectorDescription:{
         fontSize: "12pt",
         fontWeight: 300,
-    },
-    SelectorLink: {
-        textDecoration: "none",
-        borderRadius: "5px",
-        backgroundColor: Styles.yelowSGI,
-        color: "black",
-
-        padding: "1em",
-        fontWeight: 400,
     }
     ,SelectorSoon:{
         color: "rgba( 255,255,255, 0.1)"
@@ -81,7 +72,7 @@ export const SelectorCard = ({data}) =>{
             <p style={MyStyle.SelectorDescription}>
                 {data.description}</p>
             {
-                data.enable ? <Link style={MyStyle.SelectorLink} href={data.link}>Acesso <HiExternalLink /> </Link> : <></>
+                data.enable ? <Link className="selector-link" href={data.link}>Acesso <HiExternalLink /> </Link> : <></>
             }
             </div>
 }

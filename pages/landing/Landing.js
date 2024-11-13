@@ -1,20 +1,20 @@
+import Image from "next/image"
 import Link from "next/link"
+
+import SGI_White from "../../app/public/icons/sgi_white.svg"
 
 const Header = () =>{
     return <div className="landing-header-container">
 
-        <li id="landing-menu">
+        <div className="landing-menu">
             
-            <a href="#features" id="landing-menu-item">Extras</a>
-            <a href="#tools" id="landing-menu-item">Ferramentas</a>
-            <a href="#sims" id="landing-menu-item">Simulações</a>
-            <a href="#footer" id="landing-menu-item">Sobre</a>
-
-            <div>
-                <Link href={"/application/selector"}>Login</Link>
-            </div>
-
-        </li>
+            <Image className="landing-menu-item-start" src={SGI_White} alt="White Logo" width={40} height={50}/>
+            <a href="#features" className="landing-menu-item">EXTRAS</a>
+            <a href="#tools" className="landing-menu-item">FERRAMENTAS</a>
+            <a href="#sims" className="landing-menu-item">SIMULAÇÕES</a>
+            <a href="#footer" className="landing-menu-item">SOBRE</a>
+            <Link className="landing-menu-item-end" href={"/application/selector"}>LOGIN</Link>
+        </div>
 
     </div>
 }
@@ -46,8 +46,6 @@ const Footer = () =>{
         
     </div>
 }
-
-
 
 export const Landing = () => {
     return <div className="landing-container">
