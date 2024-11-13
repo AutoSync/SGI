@@ -1,3 +1,5 @@
+import { LimitText } from "../../../Resources/LimitText"
+import { ConvertToBRL } from "../../ConvertToBRL"
 import { Table } from "../../Table"
 
 //      "userId": "idx-20ktjfc8",
@@ -20,18 +22,17 @@ export function NodesMarket(data){
     let s_markets = [] //Filtered Markets Keys
 
     for(let i = 0; i < data.length; i++){
-        const m = {
-            id: data[i].userId,
-            name: data[i].name,
-            type: data[i].network,
-            category: data[i].category,
-            size: data[i].size,
-            //products: data[i].products,
-            city: data[i].city,
-            //state: data[i].state,
-            //payments: data[i].payments,
-        }
-        s_markets.push(m)
+        const m = data[i]
+        s_markets.push({
+            Id: m.userId,
+            Nome: LimitText(m.name),
+            Categoria: m.category,
+            Tamanho: m.size,
+            Saldo: ConvertToBRL(m.balance),
+            Conta: m.account,
+            Contato: m.contact[0],
+            Distribuidora: (m.dists[0].distance / 1000).toFixed(0) + " km",
+        })
     }
 
     return <div className="nodes-table">

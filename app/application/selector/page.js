@@ -1,50 +1,19 @@
 'use client'
 
-import Link from "next/link";
-import { Styles } from "../../Components/Styles";
-import { useState } from "react";
+import Image from "next/image";
 import { SelectorCard } from "../../Components/SelectorCard";
-
+import Logo from "../../public/icons/sgi_dark.svg"
 
 export default function Selector(){
 
-    const MyStyles = {
-        //Aplicativo Geral
-        Container: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: Styles.backgroundSelectorPage,
-            color: Styles.FontColor,
-            width: "100%", height: "100vh"
-        },
-        //Titulo da Escolha
-        TitleChoose:{
-            fontSize: "12pt",
-            fontWeight: "400"
-        },
-        //Titulo do rodape
-        TitleFooter: {
-            fontSize: "12pt",
-            fontWeight: "400"
-        },
-        //Contaienr dos selector cards
-        SelectorContainer: {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center"
-        },
+    
+    return <div className="selector-app">
         
-    }
+        <div>
+            <Image src={Logo} alt="sgi dark logo" width={100} height={80} />
+        </div>
 
-
-    return <div style={MyStyles.Container}>
-        
-        <h1 style={MyStyles.TitleChoose}>Escolha o Sistema</h1>
-
-        <div style={MyStyles.SelectorContainer}>
+        <div className="selector-container">
 
             <SelectorCard 
             data={ {title: "Administrador", 
@@ -72,11 +41,8 @@ export default function Selector(){
 
         </div>
 
-        <h1 style={MyStyles.TitleFooter}>2024 &copy; AutoSync SGI &trade;</h1>
-        <h1 style={MyStyles.TitleFooter}>powered by Erick Andrade</h1>
-
-
-
+        <h1 className="selector-title-footer">2024 &copy; AutoSync SGI &trade;</h1>
+        <h1 className="selector-title-footer">powered by Erick Andrade</h1>
 
     </div>
 }

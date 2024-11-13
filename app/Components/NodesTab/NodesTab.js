@@ -2,10 +2,13 @@ import { TabControl } from "../TabControl/TabControl"
 import { DataBase } from "../../data/database";
 import { NodesProducts } from "./NodesProducts"
 import { NodesMarket } from "./NodesMarket";
+import { NodesDists } from "./NodesDists";
+import { NodesFactories } from "./NodesFactories";
+
 
 const products = DataBase.products
 const markets = DataBase.clients
-const dists = DataBase.dists
+const distribuitors = DataBase.dists
 const factories = DataBase.factories
 
 export function NodesTab(){
@@ -16,8 +19,8 @@ export function NodesTab(){
         <TabControl tabData={[
             { label: "Products", content: NodesProducts(products)},
             { label: "Mercados", content: NodesMarket(markets)},
-            { label: "Distribuidoras", content: "Distribuidoras" },
-            { label: "Fabricas", content: "Factories" },
+            { label: "Distribuidoras", content: NodesDists(distribuitors) },
+            { label: "Fabricas", content: NodesFactories(factories) },
         ]} indexActive={0}
         />
     

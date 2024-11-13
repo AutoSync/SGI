@@ -9,7 +9,7 @@ const Header = () =>{
         <div className="landing-menu">
             
             <Image className="landing-menu-item-start" src={SGI_White} alt="White Logo" width={40} height={50}/>
-            <a href="#features" className="landing-menu-item">EXTRAS</a>
+            <a href="#erp" className="landing-menu-item">ERP</a>
             <a href="#tools" className="landing-menu-item">FERRAMENTAS</a>
             <a href="#sims" className="landing-menu-item">SIMULAÇÕES</a>
             <a href="#footer" className="landing-menu-item">SOBRE</a>
@@ -19,23 +19,9 @@ const Header = () =>{
     </div>
 }
 
-const Features = () =>{
-    return <div className="landing-features-container" id="features">
+const Erp = () =>{
+    return <div className="landing-features-container" id="erp">
         <h1>Features</h1>
-        
-    </div>
-}
-
-const Tools = () =>{
-    return <div className="landing-tools-container" id="tools">
-        <h1>Tools</h1>
-        
-    </div>
-}
-
-const Sims = () =>{
-    return <div className="landing-sims-container" id="sims">
-        <h1>Simulations</h1>
         
     </div>
 }
@@ -51,8 +37,6 @@ export default function Landing(){
     return <div className="landing-container">
         <Header />
         <Features />
-        <Tools />
-        <Sims />
         <Footer />
     </div>
 }

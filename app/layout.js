@@ -1,4 +1,6 @@
+import { Suspense } from "react"
 import "./global.css"
+import Loading from "./loading"
 
 export default function RootLayout({ children }) {
   return (
@@ -9,7 +11,9 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" 
         rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <Suspense fallback={<Loading/>}>
+        <body>{children}</body>
+      </Suspense>
     </html>
   )
 }

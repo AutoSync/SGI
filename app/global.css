@@ -10,8 +10,8 @@
     width: 100%;
     height: 100vh;
 
-    background: rgb(17,27,28);
-    background: linear-gradient(304deg, rgba(17,27,28,1) 0%, rgba(29,35,43,1) 100%);
+    background-color: #151520;
+    color: #B3B3B3;
 }
 
 /* LANDING PAGE */
@@ -31,6 +31,7 @@
 .landing-menu{
     margin-top: 1em;
     padding: .5em;
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -64,8 +65,69 @@
     padding: 0;
 }
 
-
 /* SELECTOR */
+
+/* .//Aplicativo Geral */
+.selector-app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #151520;
+    color: #B3B3B3;
+    width: 100%; height: 100vh;
+}
+.selector-title-choosen, .selector-title-footer{
+    font-size: 12pt;
+    font-weight: 400;
+}
+.selector-title-footer{
+    margin-top: 1em;
+    color: #3f4a58;
+}
+
+.selector-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #1F1F2D;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: 300ms;
+
+    box-shadow: 0px 0px 0px 0 rgba(199,130,0,1);
+    margin: 1rem 2rem 1rem 2em; padding: 1em;
+
+    width: 250px; height: 300px;
+
+}
+.selector-card:hover{
+
+    box-shadow: 15px 15px 50px 0 #ffcc00c2;
+    border: 1px solid #ffcc0073;
+    scale: 1.01;
+
+}
+.selector-title{
+    font-size: 16pt;
+    font-weight: 400;
+}
+.selector-description{
+    font-size: 12pt;
+    font-weight: 300;
+}
+.selector-soon{
+    color: rgba( 255,255,255, 0.1);
+}
 
 .selector-link, .selector-link:visited{
     text-decoration: none;
@@ -356,7 +418,7 @@
     transition: 200ms;
     border-radius: 0;
 
-    height: 35px;
+    height: 40px;
 }
 .table-main-tr:hover{
     background-color: #3f4a58;
@@ -368,13 +430,21 @@
 .table-main-td, .table-main-header-td, .table-main-td-large, .table-main-header-td-large{
     color: #B3B3B3;
     padding: 5px 10px 5px 10px;
+    width: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.table-main-td{
+    justify-content: flex-start;
 }
 .table-main-header-td, .table-main-header-td-large{
     font-weight: 400;
-
 }
 .table-main-td-large, .table-main-header-large{
-    max-width: 150px;
+    width: 150px;
 }
 
 .table-main-td-link{
@@ -389,8 +459,3 @@
 }
 /* ORDERS */
 /* SALES */
-
-
-
-
-
