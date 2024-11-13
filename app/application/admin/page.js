@@ -33,7 +33,7 @@ export default function Admin(){
         { label: "x", content: Footer(), type: true},
     ]}
     direction={"V"}
-    indexActive={2}    
+    indexActive={1}    
     />
          
     </div>

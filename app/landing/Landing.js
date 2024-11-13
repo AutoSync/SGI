@@ -20,8 +20,15 @@ const Header = () =>{
 }
 
 const Erp = () =>{
-    return <div className="landing-features-container" id="erp">
-        <h1>Features</h1>
+    return <div className="landing-erp-container" id="erp">
+
+        <div className="landing-erp-box-center">
+            <h1>Features</h1>
+
+        </div>
+
+        <h3 className="landing-credits-photo">Foto de <a href="https://unsplash.com/pt-br/@marcinjozwiak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcin Jozwiak</a> na <a href="https://unsplash.com/pt-br/fotografias/caminhoes-estacionados-kGoPcmpPT7c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+        </h3>
         
     </div>
 }

@@ -15,13 +15,13 @@ export const NodesProducts = (data) =>{
 
     for(let i = 0; i < data.length; i++){
         let p = { 
-            sku: data[i].sku,
-            name: LimitText(data[i].name, 15),
-            brand: LimitText(data[i].brand, 15),
-            variant: data[i].variant,
-            category: data[i].category,
-            isCold: data[i].cold_storage ? "S" : "N",
-            tax: (data[i].tax * 100).toString() + "%",
+            SKU: data[i].sku,
+            Nome: LimitText(data[i].name, 15),
+            Marca: LimitText(data[i].brand, 15),
+            Variante: data[i].variant,
+            Categoria: data[i].category,
+            Frios: data[i].cold_storage ? "S" : "N",
+            Imposto: (data[i].tax * 100).toString() + "%",
          }
          products_selected.push(p)
     }
