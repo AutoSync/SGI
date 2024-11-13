@@ -47,7 +47,7 @@ const Footer = () =>{
     </div>
 }
 
-export const Landing = () => {
+export default function Landing(){
     return <div className="landing-container">
         <Header />
         <Features />
