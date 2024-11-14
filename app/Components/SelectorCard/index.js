@@ -2,18 +2,20 @@
 import Link from "next/link"
 import { HiExternalLink } from "react-icons/hi";
 
+import styles from "./SelectorCard.module.css"
+
 export const SelectorCard = ({data}) =>{
 
-    return <div className="selector-card" >
+    return <div className={data.enable ? styles.SelectorCard : styles.SelectorCardDisabled}  >
 
             {
-                data.enable ? <></> : <h1 className="selector-soon">Em Breve</h1>
+                data.enable ? <></> : <h1 className={styles.SelectorSoon}>Em Breve</h1>
             }
-            <h1 className="selector-title">{data.title}</h1>
-            <p className="selector-description">
+            <h1 className={styles.SelectorTitle}>{data.title}</h1>
+            <p className={styles.SelectorDescription}>
                 {data.description}</p>
             {
-                data.enable ? <Link className="selector-link" href={data.link}>Acesso <HiExternalLink /> </Link> : <></>
+                data.enable ? <Link className={styles.SelectorLink} href={data.link}>Acesso <HiExternalLink /> </Link> : <></>
             }
             </div>
 }

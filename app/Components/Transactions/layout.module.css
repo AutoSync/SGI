@@ -1,0 +1,38 @@
+.Trans{
+    background-color: #1E1E2C;
+    border-radius: 10px;
+    padding: 1em;
+}
+.TransContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.TransFilter{
+    width: 250px;
+    border: none;
+}
+.TransList{
+    
+
+}
+.TransIcon{
+
+}
+.TransTitle{
+
+}
+.TransItem{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-start;
+}
+.TransInfo{
+    margin: .2em 1em;
+}
+.TransInfoValues{
+    font-family: 'Rubik', sans;
+    font-weight: 300;
+}

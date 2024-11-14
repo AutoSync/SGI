@@ -1,53 +1,51 @@
+'use client'
+
 import Image from "next/image"
 import Link from "next/link"
-
+import styles from "./Landing.module.css"
 import SGI_White from "../../app/public/icons/sgi_white.svg"
-
-const Header = () =>{
-    return <div className="landing-header-container">
-
-        <div className="landing-menu">
-            
-            <Image className="landing-menu-item-start" src={SGI_White} alt="White Logo" width={40} height={50}/>
-            <a href="#erp" className="landing-menu-item">ERP</a>
-            <a href="#tools" className="landing-menu-item">FERRAMENTAS</a>
-            <a href="#sims" className="landing-menu-item">SIMULAÇÕES</a>
-            <a href="#footer" className="landing-menu-item">SOBRE</a>
-            <Link className="landing-menu-item-end" href={"/application/selector"}>LOGIN</Link>
-        </div>
-
-    </div>
-}
-
-const Erp = () =>{
-    return <div className="landing-erp-container" id="erp">
-
-        <div className="landing-erp-box-center">
-            <h1>Features</h1>
-
-        </div>
-
-        <div className="landing-credits-photo">
-            Foto de 
-            <a className="landing-credits-link" href="https://unsplash.com/pt-br/@marcinjozwiak?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Marcin Jozwiak</a> 
-            na 
-            <a className="landing-credits-link" href="https://unsplash.com/pt-br/fotografias/caminhoes-estacionados-kGoPcmpPT7c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-        </div>
-        
-    </div>
-}
-
-const Footer = () =>{
-    return <div className="landing-footer-container" id="footer">
-        <h1>Footer</h1>
-        
-    </div>
-}
+import { useEffect, useState } from "react"
 
 export default function Landing(){
-    return <div className="landing-container">
-        <Header />
-        <Erp />
-        <Footer />
+
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop
+            setScrolled(scrollTop > 50)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+
+    return <div className={styles.LandingContainer}>
+        
+        <div className={scrolled ? styles.HeaderScrolled : styles.Header}>
+
+            <div className={styles.Menu}>
+
+                <Image src={SGI_White} alt="AutoSync SGI" width={45} height={50} />
+
+                <div className={styles.MenuList}>
+                    <a className={styles.MenuItem} href={"/"}>HOME</a>
+                    <a className={styles.MenuItem} href={"#"}>GERENCIAMENTO</a>
+                    <a className={styles.MenuItem} href={"#"}>SOBRE</a> 
+                </div>
+
+                <div className={styles.Login}>
+                    <Link className={styles.LoginLink} href={"/application/selector"}>DEMO</Link>
+                </div>
+
+            </div>
+
+        </div>
+
+            <section className={styles.Banner}>
+                <h1 className={styles.BannerTitle}>TRANSFORMANDO O <span className={styles.BannerTitleSpan}>MERCADO</span> <br /> EM UM  MUNDO DE OPORTUNIDADES </h1>
+            </section>
+
     </div>
 }

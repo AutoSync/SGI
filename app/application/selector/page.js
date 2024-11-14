@@ -2,18 +2,20 @@
 
 import Image from "next/image";
 import { SelectorCard } from "../../Components/SelectorCard";
-import Logo from "../../public/icons/sgi_dark.svg"
+import Logo from "../../public/icons/sgi_white.svg"
+
+import styles from "./selector.module.css"
 
 export default function Selector(){
 
     
-    return <div className="selector-app">
+    return <div className={styles.SelectorApp}>
         
-        <div>
+        <div className={styles.LogoImage}>
             <Image src={Logo} alt="sgi dark logo" width={100} height={80} />
         </div>
 
-        <div className="selector-container">
+        <div className={styles.SelectorContainer}>
 
             <SelectorCard 
             data={ {title: "Administrador", 

@@ -1,0 +1,32 @@
+.Card{
+    width: 150px;
+    height: 200px;
+
+    background-color: #1E1E2C;
+    border-radius: 10px;
+    padding: 1em;
+    margin: .2em 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.CardLink{
+
+}
+.CardIconDivision{
+
+}
+.CardTitle{
+    font-size: 12pt;
+    font-weight: 400;
+}
+.CardDescription{
+    font-size: 10pt;
+    font-weight: 300;
+}
+.CardValues{
+
+}

@@ -6,10 +6,10 @@ import { TbArrowsExchange as Trans } from "react-icons/tb";
 import { BsCashCoin as Coin } from "react-icons/bs";
 import { GrNotes as Orders} from "react-icons/gr";
 
-
+import style from './layout.module.css'
 export const Card = ({data}) => {
 
-    let link = <Link className="card-link" href={data.link}><Go /></Link>
+    let link = <Link className={style.CardLink} href={data.link}><Go /></Link>
     if(data.link == "x")
         link = <></>
 
@@ -32,9 +32,8 @@ export const Card = ({data}) => {
             break
     }
 
-
-    return <div className="card">
-        <div className="card-icon-division">
+    return <div className={style.Card}>
+        <div className={style.CardIconDivision}>
             {
                 icon
             }
@@ -43,11 +42,11 @@ export const Card = ({data}) => {
             }
         </div>
         <div>
-            <h1 className="card-title">{data.title}</h1>
-            <h2 className="card-description">{data.description}</h2>
+            <h1 className={style.CardTitle}>{data.title}</h1>
+            <h2 className={style.CardDescription}>{data.description}</h2>
         </div>
 
-        <h3 className="card-values">{ data.unit == true || data.unit != undefined ? data.values : ConvertToBRL(data.values)}</h3>
+        <h3 className={style.CardValues}>{ data.unit == true || data.unit != undefined ? data.values : ConvertToBRL(data.values)}</h3>
 
     </div>
 }

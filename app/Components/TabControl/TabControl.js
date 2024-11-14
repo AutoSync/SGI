@@ -1,9 +1,13 @@
 'use client'
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { TabContent } from "../TabContent/TabContent";
+import styles from './TabControl.module.css'
 
+function LoadingContent(){
+  return <h1>Carregando...</h1>
+}
 
 export const TabControl = ({tabData, direction, indexActive}) =>{
   
@@ -33,7 +37,9 @@ export const TabControl = ({tabData, direction, indexActive}) =>{
         tabStyles={dir}
       />
       {
-        <TabContent content={tabData[activeTab].content} />
+        <Suspense fallback={<LoadingContent />}>
+          <TabContent content={tabData[activeTab].content} />
+        </Suspense>
       }
 
     </div>

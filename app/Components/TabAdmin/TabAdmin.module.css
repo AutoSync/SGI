@@ -1,0 +1,4 @@
+.TabControl{
+    display: flex;
+    flex-direction: row;
+}

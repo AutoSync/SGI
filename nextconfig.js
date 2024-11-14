@@ -1,5 +1,7 @@
 module.exports = {
-    compiler: {
-      styledComponents: true,
-    },
-  }
+  cssModules: true,
+    cssLoaderOptions: {
+  importLoaders: 1,
+ localIdentName: "[]",
+},
+};
