@@ -1,8 +1,8 @@
 'use client'
-import styles from './admin.module.css'
+import styles from './page.module.css'
 import SGI from '../../public/icons/sgi_white.svg'
 import Image from 'next/image'
-import { BsColumns, BsShare, BsTag } from 'react-icons/bs'
+import { BsBoxSeam, BsBuilding, BsCart, BsColumns, BsShare, BsTag } from 'react-icons/bs'
 import { TabAdmin } from '../../Components/TabAdmin/TabAdmin'
 import { Dashboard } from '../../Components/Dashboard/Dashboard'
 
@@ -16,14 +16,17 @@ function Logo(){
 }
 export default function Admin(){
 
-    return <div className={styles.App}>
+    return <div className={styles.Admin}>
 
         <TabAdmin
         tabData={[
-            { label: <Logo /> , content: "x", typeo: true },
+            { label:  "x", content: <Logo />, type: true },
             { label: <BsColumns/> , content: Dashboard() },
             { label: <BsShare/> , content: "Nodes" },
-            { label: <BsTag/> , content: "Products" },
+            { label: <BsBoxSeam/> , content: "Products" },
+            { label: <BsTag/> , content: "Distributors" },
+            { label: <BsCart/> , content: "Clients" },
+            { label: <BsBuilding/> , content: "Factories" },
         ]}
         indexActive={1}
         />

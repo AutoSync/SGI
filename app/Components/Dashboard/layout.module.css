@@ -1,0 +1,20 @@
+.Dashboard{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;  
+}
+.DashboardTitle{
+    font-size: 16pt;
+    font-weight: 500;
+    margin: 1em .5em;
+}
+.DashboardOverview{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.DashboardToolbar{
+    border: 1px dotted green;
+}

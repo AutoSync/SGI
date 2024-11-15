@@ -5,6 +5,7 @@ import { SelectorCard } from "../../Components/SelectorCard";
 import Logo from "../../public/icons/sgi_white.svg"
 
 import styles from "./selector.module.css"
+import { BsGithub } from "react-icons/bs";
 
 export default function Selector(){
 
@@ -42,9 +43,10 @@ export default function Selector(){
             />
 
         </div>
-
-        <h1 className="selector-title-footer">2024 &copy; AutoSync SGI &trade;</h1>
-        <h1 className="selector-title-footer">powered by Erick Andrade</h1>
+        <div className={styles.SelectorFooterContainer}>
+            <h1 className={styles.SelectorFooter}>2024 &copy; AutoSync SGI &trade;</h1>
+            <h1 className={styles.SelectorFooterLink} >Powered by <a className={styles.SelectorFooterLink} href="https://github.com/autosync"> <BsGithub /> Erick Andrade</a></h1>
+        </div>
 
     </div>
 }

@@ -1,61 +1,53 @@
 "use client"
 
-import { FaLongArrowAltRight as ArrowRight } from "react-icons/fa";
-import { PiGearFineFill as Processing } from "react-icons/pi";
-import { MdLocalShipping as Shipped } from "react-icons/md";
-import { BsBoxSeamFill as Receipt } from "react-icons/bs";
+
+import Link from "next/link";
+import { CodeTrans } from "../../Processing/CodeTrans";
 import { ConvertToBRL } from "../ConvertToBRL";
 
 import style from './layout.module.css'
+import { LimitText } from "../../Resources/LimitText";
 
-// Status transacations
-// 10 Solicitacao,              20 Processamento,   30 Envio,           40 Recebimento,        
-// 11 Sem estoque,              21 atraso           31 atraso           41 atraso
-// 12 pagamento pendente        22 repondo estoque  32 roubo            42 problema com nota
-// 13 maximo de solicitacoes    23 sem estoque      33 err entregas     43 recolhimento receita
+// 100 COMPRA 200 VENDAS 300 PAGAMENTOS 400 INVESTIMENTOS
+
 
 export const Transactions = ({transData}) =>{
-    
-    const ProcessIcon = (data) => {
-        let icon = <ArrowRight />
-        switch(data.status){
-            case 10:
-                icon = <ArrowRight />
-                break
-            case 20:
-                icon = <Processing />
-                break
-            case 30:
-                icon = <Shipped />
-                break
-            case 40:
-                icon = <Receipt />
-                break
-            default: 
-                icon = <ArrowRight />
-            break
-        }   
-        return <div className={style.TransIcon}>{icon}</div>
-    }
 
+    let data = []
+
+    for(let i =0; i < transData.length; i++){
+        const t = transData[i]
+        data.push({
+            Cliente: t.client,
+            Codigo: t.code,
+            Valor: t.value,
+            TBM: t.value * 0.005,
+            COT: t.cot
+        })
+    }
+    
     return <div className={style.Trans}>
         <div className={style.TransContainer}>
-            <h3 className={style.TransTitle}>Transacões</h3>
+            <h3 className={style.TransTitle}>Transações</h3>
             <input className={style.TransFilter} placeholder="Filtrar"/>
         </div>
 
         <div className={style.TransList}>
+            <div className={style.TransHeaderTr}>
+                {
+                    Object.keys(data[0]).map((item) => (
+                        <h1 className={style.TransHeaderTd}>{item}</h1>
+                    ))
+                }
+            </div>
             {
-                transData.map((data, key) => (
-                    <div key={key} className={style.TransItem}>
-                        <h3 className={style.TransInfo}>{data.from}</h3>
-                        {
-                            ProcessIcon(data)
-                        }
-                        <h3 className={style.TransInfo}>{data.to}</h3>
-                        <h3 className={style.TransInfo}>{data.type}</h3>
-                        <h3 className={style.TransInfo}>{data.status}</h3>
-                        <h3 className={style.TransInfoValues}>{ConvertToBRL(data.value)}</h3>
+                data.map((item, index) => (
+                    <div key={index} className={ index % 2 == 0 ? style.TransTr : style.TransTrs }>
+                        <h1 className={style.TransTd}>{LimitText(item.Cliente, 15)}</h1>
+                        <h1 className={style.TransTd}>{ CodeTrans(item.Codigo) }</h1>
+                        <h1 className={style.TransTd}>{ ConvertToBRL(item.Valor) }</h1>
+                        <h1 className={style.TransTd}>{ ConvertToBRL(item.TBM) }</h1>
+                        <Link href={"#"} className={style.TransId}>{item.COT}</Link>
                     </div>
                 ))
             }

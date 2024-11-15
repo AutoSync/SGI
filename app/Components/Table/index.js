@@ -12,7 +12,6 @@ export const Table = ({data}) => {
     //     serOrder({...order, body: [...order.body].sort((a, b) => a[column] > b[column]? 1 : -1) })
     // }
 
-
     return <div className="table-main">
             <div className="table-main-header-tr">
                 {

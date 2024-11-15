@@ -4,13 +4,17 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     background-image: url("../../public/images/banner.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.LogoImage{
+    margin-top: 2em;
 }
 
 .SelectorContainer{
@@ -20,4 +24,27 @@
     align-items: center;
 
     padding: 1em 2em;
+}
+
+.SelectorFooterContainer{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 210, 251);
+    margin-bottom: 2em;
+}
+
+.SelectorFooter{
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.SelectorFooterLink, .SelectorFooterLink:visited{
+    color: rgb(255, 210, 251);
+    font-size: 12pt;
+    font-weight: 400;
+}
+.SelectorFooterLink:visited{
+    color: rgb(163, 104, 240);
 }
