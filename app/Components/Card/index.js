@@ -8,18 +8,14 @@ import { GrNotes as Orders} from "react-icons/gr";
 
 import style from './layout.module.css'
 import { useState } from "react";
-export const Card = ({data}) => {
-
+export const Card = ({data, CardReady}) => {
     const [Active, setActive] = useState(false)
-
     const HandleActive = () =>{
         setActive(true)
     }
-
     const HandleDisable = () =>{
         setActive(false)
     }
-
     const iconSize = 18
     let link = <Link className={Active ? style.CardLinkActive : style.CardLink } href={data.link}><Go fontSize={iconSize} /></Link>
     if(data.link == "x")
@@ -44,7 +40,7 @@ export const Card = ({data}) => {
             break
     }
 
-    return <div className={style.Card} onMouseEnter={HandleActive} onMouseLeave={HandleDisable} >
+    return CardReady ? <div className={style.Card} onMouseEnter={HandleActive} onMouseLeave={HandleDisable} >
         <div className={style.CardIconDivision} >
             <div className={style.CardIcon}>
                 {
@@ -65,5 +61,6 @@ export const Card = ({data}) => {
 
         <h3 className={style.CardValues}>{ data.unit == true || data.unit != undefined ? data.values : ConvertToBRL(data.values)}</h3>
 
-    </div>
+        </div> : <div className={style.CardLoading}/>
+    
 }

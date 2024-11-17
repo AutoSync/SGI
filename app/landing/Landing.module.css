@@ -89,8 +89,21 @@
 }
 
 .BannerTitleSpan{
-background: linear-gradient(to right, #ea00ff, #ff9633);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+    background: linear-gradient(-45deg, #ec19ff, #ff9d42, #ec19ff);
+    background-size: 400%;
+    animation: gradient 15s ease infinite;
 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+    50% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0%;
+    }
 }

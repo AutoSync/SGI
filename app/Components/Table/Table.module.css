@@ -1,0 +1,109 @@
+.Table{
+    width: 100%;
+    height: 80vh;
+    overflow: scroll;
+
+    padding: 2em;
+}
+.TableMainLoading{
+
+}
+.TableLoadingTr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: .2em;
+
+    border-radius: 10px;
+
+    animation: pulsing 1.5s ease-in-out infinite;
+    background-color: rgba(255, 255, 255, 0.171);
+    padding: .5em;
+}
+
+@keyframes pulsing {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.TableLoadingTd{
+    padding: .2em;
+    margin: .2em;
+    width: 120px;
+    height: 25px;
+    background-color: gray;
+}
+.TableMain{
+    background: rgb(42,42,42);
+    background: linear-gradient(172deg, rgba(32,32,32,1) 0%, rgba(0,0,0,1) 100%);
+}
+.TableMainTr, .TableMainTrs, .TableMainTrLast, .TableHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: .2s;
+    border: 1px solid transparent;
+}
+.TableHeader{
+    border-radius: 10px 10px 0px 0px;
+    background-color: white;
+}
+.TableMainTrLast{
+    border-radius: 0px 0px 10px 10px;
+}
+
+.TableMainTr:hover, .TableMainTrs:hover, .TableMainTrLast:hover{
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.TableMainTd, .TableHeaderTd{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .2em;
+    margin: .2em .5em;
+    border-radius: 10px;
+    transition: .2s;
+    font-weight: 600;
+    width: 120px;
+}
+.TableHeaderButton{
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+    background-color: transparent;
+    transition: .2s;
+    font-weight: 600;
+}
+.TableHeaderButton:hover{
+    background-color: rgba(0, 0, 0, 0.356);
+    cursor: pointer;
+}
+.TableMainIndex{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: -10px;
+    padding: .5em;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+
+    font-weight: 12pt;
+    font-weight: 600;
+}
