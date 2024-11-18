@@ -36,7 +36,6 @@ export function Dashboard(){
 
             const admin = ReadAdminDb()
             //Update Cards 
-            console.log(`Admin: ${admin}`)
             if(admin != null){
                 setUpdatedCards({
                     sales: admin.sales,
@@ -52,17 +51,17 @@ export function Dashboard(){
                 setTransReady(true)
             }
 
-        }, 2000);
+        }, 1000);
         
         return  () => clearTimeout(timer);
     }, [])
 
     return <div className={styles.Dashboard}>
         <Dash 
-        dataCards={UpdatedCards}
-        dataTrans={UpdatedTransacations}
-        CardReady={CardReady}
-        TransReady={TransReady}
+            dataCards={UpdatedCards}
+            dataTrans={UpdatedTransacations}
+            CardReady={CardReady}
+            TransReady={TransReady}
         />
         <Toolbar />
     </div>

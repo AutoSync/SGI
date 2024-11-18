@@ -1,9 +1,15 @@
 .Dashboard{
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;  
+    display: grid;
+    grid-template-areas:
+        "overview overview toolbar"
+        "overview overview toolbar"
+        "overview overview toolbar"
+        "overview overview toolbar";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+    padding: 1em;
 }
 .DashboardTitle{
     font-size: 16pt;
@@ -14,7 +20,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    grid-area: overview;
 }
 .DashboardToolbar{
     border: 1px dotted green;
+    grid-area: toolbar;
 }

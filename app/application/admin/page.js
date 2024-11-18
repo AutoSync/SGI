@@ -5,9 +5,11 @@ import Image from 'next/image'
 import { BsBoxSeam, BsBuilding, BsCart, BsColumns, BsShare, BsTag } from 'react-icons/bs'
 import { TabAdmin } from '../../Components/TabAdmin/TabAdmin'
 import { Dashboard } from '../../Components/Dashboard/Dashboard'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { DataBase, ReadAdminDb, ReadClientsDb, ReadDistsDb, ReadFactoriesDb, ReadProductsDb, WriteAdminDb, WriteClientsDb, WriteDistsDb, WriteFactoriesDb, WriteProductsDb } from '../../data/database'
 import { Products } from '../../Components/Products'
+import { Distribuidor } from '../../Components/Distribuidor'
+import { Markets } from '../../Components/Markets'
 
 function Logo(){
     return <div className={styles.Logo}>
@@ -67,12 +69,12 @@ export default function Admin(){
     return <div className={styles.Admin}>
         <TabAdmin
         tabData={[
-            { label:  "x", content: <Logo />, type: true },
+            { label:  "x", content: <Logo key={0} />, type: true },
             { label: <BsColumns/> , content: Dashboard() },
             { label: <BsShare/> , content: "Nodes" },
+            { label: <BsCart/> , content: Markets() },
             { label: <BsTag /> , content: Products() },
-            { label: <BsBoxSeam/> , content: "Distributors" },
-            { label: <BsCart/> , content: "Clients" },
+            { label: <BsBoxSeam/> , content: Distribuidor() },
             { label: <BsBuilding/> , content: "Factories" },
         ]}
         indexActive={3}
